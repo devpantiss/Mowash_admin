@@ -126,7 +126,7 @@ const HospitalMap = () => {
   const hoveredDistrictData = hospitalData[hoveredDistrict] || null;
 
   return (
-    <div className='flex relative'>
+    <div className='flex relative ring-1 ring-white pt-6 rounded-md'>
       <div className="relative bg-transparent w-[800px] p-6">
         {/* Data Display on the left */}
         <div className="absolute bg-gray-900 text-white p-4">
@@ -167,7 +167,7 @@ const HospitalMap = () => {
         <div className="relative mt-6">
           <MapContainer
             bounds={odishaBounds}  // Limit the map to Odisha boundaries
-            zoom={8}               // Set a fixed zoom level
+            zoom={5}               // Set a fixed zoom level
             scrollWheelZoom={false} // Disable scroll zoom
             dragging={false}        // Disable dragging (makes the map fixed)
             zoomControl={false}     // Remove zoom controls
