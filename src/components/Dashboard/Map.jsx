@@ -126,7 +126,7 @@ const HospitalMap = () => {
   const hoveredDistrictData = hospitalData[hoveredDistrict] || null;
 
   return (
-    <div className='flex'>
+    <div className='flex relative'>
       <div className="relative bg-transparent w-[800px] p-6">
         {/* Data Display on the left */}
         <div className="absolute bg-gray-900 text-white p-4">
@@ -210,7 +210,7 @@ const HospitalMap = () => {
       </div>
       <div>
         {/* Table component */}
-        <div className="p-4" style={{ maxWidth:'500px', maxHeight: '800px', overflow: 'auto' }}>
+        <div className="p-4 absolute right-0" style={{ maxWidth:'500px', maxHeight: '800px', overflow: 'auto' }}>
           <h2 className="text-xl text-white font-bold mb-4">Hospital Data by District</h2>
           <table className="min-w-full bg-white border-collapse border">
             <thead>
