@@ -127,7 +127,7 @@ const HospitalMap = () => {
 
   return (
     <div className='flex relative ring-1 ring-white pt-6 rounded-md'>
-      <div className="relative bg-transparent w-[800px] p-6">
+      <div className="relative bg-transparent w-[800px] lg:w-[1000px] p-6">
         {/* Data Display on the left */}
         <div className="absolute bg-gray-900 text-white p-4">
           <h1 className="text-xl font-bold mb-4">MoWash Engineers</h1>
@@ -146,7 +146,7 @@ const HospitalMap = () => {
         </div>
 
         {/* Color Code */}
-        <div className='absolute flex flex-col bottom-12 right-[150px]'>
+        <div className='absolute flex flex-col bottom-12 right-[250px]'>
           <h1 className='text-white'>Workers Count</h1>
           <div className='flex gap-x-3 justify-between items-center'>
             <div className='flex w-[15px] h-[15px] px-1 py-1 rounded-full bg-[orange]'></div>
@@ -164,18 +164,18 @@ const HospitalMap = () => {
         </div>
 
         {/* Fixed Map showing only GeoJSON */}
-        <div className="relative mt-6">
+        <div className="relative w-full ml-12 mt-6">
           <MapContainer
-            bounds={odishaBounds}  // Limit the map to Odisha boundaries
-            zoom={5}               // Set a fixed zoom level
-            scrollWheelZoom={false} // Disable scroll zoom
-            dragging={false}        // Disable dragging (makes the map fixed)
-            zoomControl={false}     // Remove zoom controls
-            style={{ height: '100vh', width: '100%', background: 'none' }} // Remove background
-            doubleClickZoom={false} // Disable double-click zoom
-            touchZoom={false}       // Disable zoom on mobile touch
-            keyboard={false}        // Disable zoom/pan via keyboard
-            boxZoom={false}        // Disable zoom via box selection
+            bounds={odishaBounds} 
+            zoom={5}               
+            scrollWheelZoom={false} 
+            dragging={false}        
+            zoomControl={false}     
+            style={{ height: '100vh', width: '100%', background: 'none' }} 
+            doubleClickZoom={false}
+            touchZoom={false}       
+            keyboard={false}       
+            boxZoom={false}
           >
             {/* Render GeoJSON when available */}
             {geoJsonData && (
