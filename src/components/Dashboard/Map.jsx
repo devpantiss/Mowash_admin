@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { MapContainer, GeoJSON } from 'react-leaflet';
+import { MapContainer, GeoJSON, Marker, Tooltip } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 
 const HospitalMap = () => {
@@ -26,7 +26,7 @@ const HospitalMap = () => {
     Kalahandi: { total: 322, masons: 65, plumbers: 40, safaiKarmachari: 70, electricians: 40, fstpHandler: 55, sesspoolOperator: 20, facilityCrew: 32 },
     Kandhamal: { total: 229, masons: 50, plumbers: 25, safaiKarmachari: 45, electricians: 35, fstpHandler: 40, sesspoolOperator: 10, facilityCrew: 14 },
     Kendrapara: { total: 301, masons: 70, plumbers: 35, safaiKarmachari: 60, electricians: 40, fstpHandler: 50, sesspoolOperator: 10, facilityCrew: 36 },
-    Keonjhar: { total: 449, masons: 100, plumbers: 50, safaiKarmachari: 90, electricians: 70, fstpHandler: 80, sesspoolOperator: 20, facilityCrew: 39 },
+    Kendujhar: { total: 449, masons: 100, plumbers: 50, safaiKarmachari: 90, electricians: 70, fstpHandler: 80, sesspoolOperator: 20, facilityCrew: 39 },
     Khordha: { total: 455, masons: 90, plumbers: 60, safaiKarmachari: 100, electricians: 80, fstpHandler: 90, sesspoolOperator: 20, facilityCrew: 15 },
     Koraput: { total: 381, masons: 75, plumbers: 40, safaiKarmachari: 75, electricians: 60, fstpHandler: 60, sesspoolOperator: 25, facilityCrew: 46 },
     Malkangiri: { total: 194, masons: 40, plumbers: 20, safaiKarmachari: 35, electricians: 25, fstpHandler: 30, sesspoolOperator: 8, facilityCrew: 36 },
@@ -41,7 +41,7 @@ const HospitalMap = () => {
     Sundargarh: { total: 719, masons: 150, plumbers: 85, safaiKarmachari: 145, electricians: 110, fstpHandler: 120, sesspoolOperator: 35, facilityCrew: 74 },
   };
 
-   // Fetch GeoJSON data when the component mounts
+  // Fetch GeoJSON data when the component mounts
   useEffect(() => {
     fetch('/Orissa.geojson') // Path relative to the public folder
       .then((response) => response.json())
@@ -112,6 +112,13 @@ const HospitalMap = () => {
     [22.570, 87.530], // Northeast corner
   ];
 
+
+  const getDistrictCenter = (geometry) => {
+    const latLngs = L.GeoJSON.coordsToLatLngs(geometry.coordinates, geometry.type === 'Polygon' ? 1 : 2);
+    const bounds = L.latLngBounds(latLngs);
+    return bounds.getCenter();
+  };
+
   // Total hospital count for all districts
   const totalWorkers = Object.values(hospitalData).reduce((sum, district) => sum + district.total, 0);
 
@@ -119,58 +126,126 @@ const HospitalMap = () => {
   const hoveredDistrictData = hospitalData[hoveredDistrict] || null;
 
   return (
-    <div className="relative bg-transparent">
-      {/* Data Display on the left */}
-      <div className="absolute bg-gray-900 text-white p-4">
-        <h1 className="text-xl font-bold mb-4">MoWash Engineers</h1>
-        {/* Show total hospitals when no district is hovered */}
-        {!hoveredDistrict ? (
+    <div className='flex'>
+      <div className="relative bg-transparent w-[800px] p-6">
+        {/* Data Display on the left */}
+        <div className="absolute bg-gray-900 text-white p-4">
+          <h1 className="text-xl font-bold mb-4">MoWash Engineers</h1>
+          {/* Show total hospitals when no district is hovered */}
           <>
-            <div>Total Workers: <strong>{totalWorkers}</strong></div>
-            <div>Masons: <strong>{Object.values(hospitalData).reduce((sum, district) => sum + district.masons, 0)}</strong></div>
-            <div>Plumbers: <strong>{Object.values(hospitalData).reduce((sum, district) => sum + district.plumbers, 0)}</strong></div>
-            <div>Safai Karmachari: <strong>{Object.values(hospitalData).reduce((sum, district) => sum + district.safaiKarmachari, 0)}</strong></div>
-            <div>Electricians: <strong>{Object.values(hospitalData).reduce((sum, district) => sum + district.electricians, 0)}</strong></div>
-            <div>FSTP Handlers: <strong>{Object.values(hospitalData).reduce((sum, district) => sum + district.fstpHandler, 0)}</strong></div>
-            <div>Sesspool Operators: <strong>{Object.values(hospitalData).reduce((sum, district) => sum + district.sesspoolOperator, 0)}</strong></div>
-            <div>Facility Crews: <strong>{Object.values(hospitalData).reduce((sum, district) => sum + district.facilityCrew, 0)}</strong></div>
+            <h2 className="text-lg font-bold">{!hoveredDistrict ? "Odisha" : hoveredDistrict}</h2>
+            <div>Total Workers: <strong>{!hoveredDistrict ? totalWorkers : hoveredDistrictData?.total}</strong></div>
+            <div>Masons: <strong>{!hoveredDistrict ? Object.values(hospitalData).reduce((sum, district) => sum + district.masons, 0) : hoveredDistrictData?.masons}</strong></div>
+            <div>Plumbers: <strong>{!hoveredDistrict ? Object.values(hospitalData).reduce((sum, district) => sum + district.plumbers, 0) : hoveredDistrictData?.plumbers}</strong></div>
+            <div>Safai Karmachari: <strong>{!hoveredDistrict ? Object.values(hospitalData).reduce((sum, district) => sum + district.safaiKarmachari, 0) : hoveredDistrictData?.safaiKarmachari}</strong></div>
+            <div>Electricians: <strong>{!hoveredDistrict ? Object.values(hospitalData).reduce((sum, district) => sum + district.electricians, 0) : hoveredDistrictData?.electricians}</strong></div>
+            <div>FSTP Handlers: <strong>{!hoveredDistrict ? Object.values(hospitalData).reduce((sum, district) => sum + district.fstpHandler, 0) : hoveredDistrictData?.fstpHandler}</strong></div>
+            <div>Sesspool Operators: <strong>{!hoveredDistrict ? Object.values(hospitalData).reduce((sum, district) => sum + district.sesspoolOperator, 0) : hoveredDistrictData?.sesspoolOperator}</strong></div>
+            <div>Facility Crews: <strong>{!hoveredDistrict ? Object.values(hospitalData).reduce((sum, district) => sum + district.facilityCrew, 0) : hoveredDistrictData?.facilityCrew}</strong></div>
           </>
-        ) : (
-          <div className="mt-4 p-2 border border-gray-500 rounded">
-            <h2 className="text-lg font-bold">{hoveredDistrict}</h2>
-            <div>Total Workers: <strong>{hoveredDistrictData?.total}</strong></div>
-            <div>Masons: <strong>{hoveredDistrictData?.masons}</strong></div>
-            <div>Plumbers: <strong>{hoveredDistrictData?.plumbers}</strong></div>
-            <div>Safai Karmachari: <strong>{hoveredDistrictData?.safaiKarmachari}</strong></div>
-            <div>Electricians: <strong>{hoveredDistrictData?.electricians}</strong></div>
-            <div>FSTP Handlers: <strong>{hoveredDistrictData?.fstpHandler}</strong></div>
-            <div>Sesspool Operators: <strong>{hoveredDistrictData?.sesspoolOperator}</strong></div>
-            <div>Facility Crews: <strong>{hoveredDistrictData?.facilityCrew}</strong></div>
-          </div>
-        )}
-      </div>
+        </div>
 
-      {/* Fixed Map showing only GeoJSON */}
-      <div className="relative">
-        <MapContainer
-          bounds={odishaBounds}  // Limit the map to Odisha boundaries
-          zoom={5}               // Set a fixed zoom level
-          scrollWheelZoom={false} // Disable scroll zoom
-          dragging={false}        // Disable dragging (makes the map fixed)
-          zoomControl={false}     // Remove zoom controls
-          style={{ height: '100vh', width: '100%', background: 'none' }} // Remove background
-          doubleClickZoom={false} // Disable double-click zoom
-          touchZoom={false}       // Disable zoom on mobile touch
-          keyboard={false}        // Disable zoom/pan via keyboard
-          boxZoom={false}        // Disable zoom via box selection
-        >
-          {/* Render GeoJSON when available */}
-          {geoJsonData && (
-            <GeoJSON data={geoJsonData} style={styleDistrict} onEachFeature={onEachDistrict} />
-          )}
-        </MapContainer>
+        {/* Color Code */}
+        <div className='absolute flex flex-col bottom-12 right-[150px]'>
+          <h1 className='text-white'>Workers Count</h1>
+          <div className='flex gap-x-3 justify-between items-center'>
+            <div className='flex w-[15px] h-[15px] px-1 py-1 rounded-full bg-[orange]'></div>
+            <p className='text-white'>0-150</p>
+          </div>
+          <div className='flex gap-x-3 justify-between items-center'>
+            <div className='flex w-[15px] h-[15px] px-1 py-1 rounded-full bg-[yellow]'></div>
+            <p className='text-white'>300-150</p>
+          </div>
+          <div className='flex gap-x-3 justify-between items-center'>
+            <div className='flex w-[15px] h-[15px] px-1 py-1 rounded-full bg-[green]'></div>
+            <p className='text-white'>300+</p>
+          </div>
+
+        </div>
+
+        {/* Fixed Map showing only GeoJSON */}
+        <div className="relative mt-6">
+          <MapContainer
+            bounds={odishaBounds}  // Limit the map to Odisha boundaries
+            zoom={8}               // Set a fixed zoom level
+            scrollWheelZoom={false} // Disable scroll zoom
+            dragging={false}        // Disable dragging (makes the map fixed)
+            zoomControl={false}     // Remove zoom controls
+            style={{ height: '100vh', width: '100%', background: 'none' }} // Remove background
+            doubleClickZoom={false} // Disable double-click zoom
+            touchZoom={false}       // Disable zoom on mobile touch
+            keyboard={false}        // Disable zoom/pan via keyboard
+            boxZoom={false}        // Disable zoom via box selection
+          >
+            {/* Render GeoJSON when available */}
+            {geoJsonData && (
+              <>
+                <GeoJSON data={geoJsonData} style={styleDistrict} onEachFeature={onEachDistrict} />
+
+                {/* Adding markers for each district */}
+                {geoJsonData.features.map((district) => {
+                  const districtName = district.properties.Dist_Name;
+                  const hospitalCount = hospitalData[districtName]?.total || 0;
+                  const center = getDistrictCenter(district.geometry);
+
+                  return (
+                    <Marker
+                      key={districtName}
+                      position={center}
+                      icon={L.divIcon({
+                        className: 'custom-icon',
+                        html: `<div style="background-color: rgba(0,0,0,0.5); color: white; padding: 2px 5px; border-radius: 5px;">${hospitalCount}</div>`,
+                      })}
+                    >
+                      <Tooltip direction="top" offset={[0, -10]} opacity={1}>
+                        {districtName}
+                      </Tooltip>
+                    </Marker>
+                  );
+                })}
+              </>
+            )}
+          </MapContainer>
+        </div>
+      </div>
+      <div>
+        {/* Table component */}
+        <div className="p-4" style={{ maxWidth:'500px', maxHeight: '800px', overflow: 'auto' }}>
+          <h2 className="text-xl text-white font-bold mb-4">Hospital Data by District</h2>
+          <table className="min-w-full bg-white border-collapse border">
+            <thead>
+              <tr>
+                <th className="border p-2">District</th>
+                <th className="border p-2">Total Workers</th>
+                <th className="border p-2">Masons</th>
+                <th className="border p-2">Plumbers</th>
+                <th className="border p-2">Safai Karmachari</th>
+                <th className="border p-2">Electricians</th>
+                <th className="border p-2">FSTP Handlers</th>
+                <th className="border p-2">Sesspool Operators</th>
+                <th className="border p-2">Facility Crews</th>
+              </tr>
+            </thead>
+            <tbody>
+              {Object.entries(hospitalData).map(([district, data]) => (
+                <tr key={district}>
+                  <td className="border p-2">{district}</td>
+                  <td className="border p-2">{data.total}</td>
+                  <td className="border p-2">{data.masons}</td>
+                  <td className="border p-2">{data.plumbers}</td>
+                  <td className="border p-2">{data.safaiKarmachari}</td>
+                  <td className="border p-2">{data.electricians}</td>
+                  <td className="border p-2">{data.fstpHandler}</td>
+                  <td className="border p-2">{data.sesspoolOperator}</td>
+                  <td className="border p-2">{data.facilityCrew}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
+
   );
 };
 
