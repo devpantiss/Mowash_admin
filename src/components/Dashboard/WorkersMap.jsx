@@ -2,8 +2,21 @@ import React, { useState, useEffect } from "react";
 import { MapContainer, GeoJSON, Marker } from "react-leaflet";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet"; // Import L for using Leaflet features
+import {
+  FaUsers,
+  FaHardHat,
+  FaBolt,
+  FaWrench,
+  FaWater,
+  FaSyringe, // Using FaSyringe as a placeholder for FSTP Handler
+  FaLeaf,
+  FaToilet,
+  FaHandsHelping,
+  FaHandHoldingWater,
+  FaSun, 
+} from "react-icons/fa";
 
-const HospitalMap = () => {
+const WorkersMap = () => {
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [hoveredDistrict, setHoveredDistrict] = useState(null);
   const [selectedTab, setSelectedTab] = useState("total"); // Default to "total"
@@ -23,6 +36,22 @@ const HospitalMap = () => {
     "solarPumpEngineer",
     "pondExcavator",
   ];
+
+  const categoryIcons = {
+    total: FaUsers,
+    mason: FaHardHat,
+    electrician: FaBolt,
+    plumber: FaWrench,
+    sanitarySesspoolOperator: FaWater,
+    fstpHandler: FaSyringe, // Placeholder
+    compostMaker: FaLeaf,
+    sanitaryCrew: FaToilet,
+    wtpOperator: FaWater,
+    bovPartners: FaHandsHelping,
+    nalJalMitra: FaHandHoldingWater,
+    solarPumpEngineer: FaSun, // Placeholder
+    pondExcavator: FaSun,
+  };
 
   // Hospital data for Odisha districts (dummy data)
   const hospitalData = [
@@ -625,13 +654,13 @@ const HospitalMap = () => {
     <div className="flex flex-col lg:flex-row lg:w-[90vw] w-full relative ring-1 ring-white pt-6 rounded-md">
       <div className="relative bg-transparent w-full lg:w-3/5 p-6">
         {/* Tab Navigation */}
-        <div className="flex space-x-4 overflow-auto mb-4">
+        <div className="flex overflow-x-auto mb-4">
           {[
             "total",
             "mason",
             "electrician",
             "plumber",
-            "cesspoolOperator",
+            "sanitarySesspoolOperator",
             "fstpHandler",
             "compostMaker",
             "sanitaryCrew",
@@ -640,19 +669,29 @@ const HospitalMap = () => {
             "nalJalMitra",
             "solarPumpEngineer",
             "pondExcavator",
-          ].map((tab) => (
-            <button
-              key={tab}
-              className={`py-2 px-4 rounded ${
-                selectedTab === tab ? "bg-blue-500 text-white" : "bg-gray-300"
-              }`}
-              onClick={() => setSelectedTab(tab)}
-            >
-              {tab
-                .replace(/([A-Z])/g, " $1")
-                .replace(/^./, (str) => str.toUpperCase())}
-            </button>
-          ))}
+          ].map((tab) => {
+            const IconComponent = categoryIcons[tab] || FaUsers; // Default icon if not found
+            return (
+              <button
+                key={tab}
+                className={`flex w-[150px] justify-center border-x-2 bordr-white items-center space-x-1 py-2 px-4 transition-all duration-300 ease-in-out ${
+                  selectedTab === tab
+                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg transform scale-105"
+                    : "bg-transparent text-white hover:bg-gray-300 hover:shadow-md"
+                }`}
+                onClick={() => setSelectedTab(tab)}
+                aria-pressed={selectedTab === tab}
+              >
+                {/* Render the icon */}
+                <IconComponent className="h-5 w-5" />
+                <span className="capitalize">
+                  {tab
+                    .replace(/([A-Z])/g, " $1")
+                    .replace(/^./, (str) => str.toUpperCase())}
+                </span>
+              </button>
+            );
+          })}
         </div>
 
         {/* Display Data */}
@@ -771,7 +810,7 @@ const HospitalMap = () => {
               {hospitalData.map(({ name, total, ...rest }) => (
                 <tr key={name} className="border-b">
                   <td className="p-2">{name}</td>
-                  <td className="p-2">{total}</td>
+                  <td className="p-2 text-yellow-300">{total}</td>
                   {categories.map((category) => (
                     <td
                       key={category}
@@ -792,4 +831,4 @@ const HospitalMap = () => {
   );
 };
 
-export default HospitalMap;
+export default WorkersMap;
