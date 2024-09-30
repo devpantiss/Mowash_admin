@@ -11,7 +11,7 @@ const Dashboard = () => {
 
 
   return (
-    <div className='p-2'>
+    <div className='overflow-auto p-2 w-full'>
       <FirstRow />
       <WorkersMap />
       <PieChartSection />

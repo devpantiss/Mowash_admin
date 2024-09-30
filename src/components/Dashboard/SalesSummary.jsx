@@ -76,7 +76,7 @@ const ClaimSummaryTable = () => {
   ];
 
   return (
-    <div className="p-8 bg-transparent ring-2 ring-gray-700 rounded-md text-white">
+    <div className="p-8 bg-transparent mt-4 ring-2 ring-gray-700 rounded-md text-white">
       <h1 className="text-3xl font-bold mb-4">
         Claim Summary <span className="text-orange-400">31,96,445</span>
       </h1>

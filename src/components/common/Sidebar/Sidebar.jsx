@@ -6,7 +6,7 @@ const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <div className="w-[280px] bg-blue-900 text-white h-screen sticky">
+    <div className="w-[180px] bg-blue-900 text-white h-screen sticky">
       <div className="p-4 pb-0 text-center text-xl font-bold">
         <img src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726530988/mo-wash-logo_eiq199.svg" className="w-32" alt="mowash"/>
         Dashboard
