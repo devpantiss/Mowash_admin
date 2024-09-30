@@ -597,11 +597,11 @@ const WorksDoneMap = () => {
 
   const getColorByWorkers = (workerCount) => {
     if (workerCount <= 50) {
-      return "#ccffff"; // Light Red for 0-50 workers
+      return "#fc9992"; // Light Red for 0-50 workers
     } else if (workerCount <= 180) {
-      return " #1affff"; // Medium Red for 51-180 workers
+      return "#ed1607"; // Medium Red for 51-180 workers
     } else {
-      return "#00e6e6"; // Dark Red for 181+ workers
+      return "#a82b22"; // Dark Red for 181+ workers
     }
   };
 
@@ -696,7 +696,7 @@ const WorksDoneMap = () => {
 
         {/* Display Data */}
         <div className="absolute bg-gray-900 text-white p-4">
-          <h1 className="text-xl font-bold mb-4">MoWash Engineers</h1>
+          <h1 className="text-xl font-bold mb-4">MoWash Jobs</h1>
           <>
             <h2 className="text-lg font-bold">
               {!hoveredDistrict ? "Odisha" : hoveredDistrict}
@@ -785,8 +785,8 @@ const WorksDoneMap = () => {
       </div>
       <div className="w-full lg:w-2/5">
         {/* Table component */}
-        <h2 className="text-xl text-white font-bold mb-4">
-          Workers by District
+        <h2 className="text-xl p-2 text-white font-bold mb-4">
+          Jobs Done by District
         </h2>
         <div
           className="p-4"
@@ -796,7 +796,7 @@ const WorksDoneMap = () => {
             <thead className="sticky -top-[30px] p-4 bg-gray-900">
               <tr>
                 <th className="p-2 border-b">District</th>
-                <th className="p-2 border-b">Total Workers</th>
+                <th className="p-2 border-b">Total Jobs</th>
                 {categories.map((category) => (
                   <th key={category} className="p-2 border-b">
                     {category

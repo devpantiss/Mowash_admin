@@ -7,7 +7,7 @@ import Navbar from "../Navbar/Navbar";
 
 const Layout = () => {
   return (
-    <div className="flex h-screen">
+    <div className="flex h-screen w-[100vw]">
       {/* Sidebar (Fixed on the left) */}
       <Sidebar />
 

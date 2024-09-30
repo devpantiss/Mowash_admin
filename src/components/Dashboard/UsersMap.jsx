@@ -16,7 +16,7 @@ import {
   FaSun, 
 } from "react-icons/fa";
 
-const WorkersMap = () => {
+const UsersMap = () => {
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [hoveredDistrict, setHoveredDistrict] = useState(null);
   const [selectedTab, setSelectedTab] = useState("total"); // Default to "total"
@@ -597,11 +597,11 @@ const WorkersMap = () => {
 
   const getColorByWorkers = (workerCount) => {
     if (workerCount <= 50) {
-      return "#64f586"; // Light Red for 0-50 workers
+      return "#faefa5"; // Light Red for 0-50 workers
     } else if (workerCount <= 180) {
-      return "#02f53b"; // Medium Red for 51-180 workers
+      return "#f7d80a"; // Medium Red for 51-180 workers
     } else {
-      return "#179c36"; // Dark Red for 181+ workers
+      return "#bfa919"; // Dark Red for 181+ workers
     }
   };
 
@@ -696,7 +696,7 @@ const WorkersMap = () => {
 
         {/* Display Data */}
         <div className="absolute bg-gray-900 text-white p-4">
-          <h1 className="text-xl font-bold mb-4">MoWash Engineers</h1>
+          <h1 className="text-xl font-bold mb-4">MoWash Users</h1>
           <>
             <h2 className="text-lg font-bold">
               {!hoveredDistrict ? "Odisha" : hoveredDistrict}
@@ -786,7 +786,7 @@ const WorkersMap = () => {
       <div className="w-full lg:w-2/5">
         {/* Table component */}
         <h2 className="text-xl text-white p-2 font-bold mb-4">
-          Workers by District
+          Users by District
         </h2>
         <div
           className="p-4"
@@ -831,4 +831,4 @@ const WorkersMap = () => {
   );
 };
 
-export default WorkersMap;
+export default UsersMap;
