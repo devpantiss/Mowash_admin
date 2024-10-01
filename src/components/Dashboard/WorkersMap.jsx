@@ -809,12 +809,12 @@ const WorkersMap = () => {
             <tbody>
               {hospitalData.map(({ name, total, ...rest }) => (
                 <tr key={name} className="border-b">
-                  <td className="p-2">{name}</td>
-                  <td className="p-2 text-yellow-300">{total}</td>
+                  <td className="p-2 text-center">{name}</td>
+                  <td className="p-2 text-center text-yellow-300">{total}</td>
                   {categories.map((category) => (
                     <td
                       key={category}
-                      className={`p-2 ${
+                      className={`p-2 text-center ${
                         selectedTab === category ? "bg-blue-200" : ""
                       }`}
                     >

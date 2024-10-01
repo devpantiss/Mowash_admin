@@ -13,512 +13,45 @@ import {
   FaToilet,
   FaHandsHelping,
   FaHandHoldingWater,
-  FaSun, 
+  FaSun,
 } from "react-icons/fa";
 
 const UsersMap = () => {
   const [geoJsonData, setGeoJsonData] = useState(null);
   const [hoveredDistrict, setHoveredDistrict] = useState(null);
-  const [selectedTab, setSelectedTab] = useState("total"); // Default to "total"
-
-  // Define all categories for consistent table headers
-  const categories = [
-    "masons",
-    "electricians",
-    "plumbers",
-    "sanitarySesspoolOperator",
-    "fstpHandler",
-    "compostMakers",
-    "sanitaryCrew",
-    "wtpoperator",
-    "bovPartners",
-    "nalJalMitra",
-    "solarPumpEngineer",
-    "pondExcavator",
-  ];
-
-  const categoryIcons = {
-    total: FaUsers,
-    mason: FaHardHat,
-    electrician: FaBolt,
-    plumber: FaWrench,
-    sanitarySesspoolOperator: FaWater,
-    fstpHandler: FaSyringe, // Placeholder
-    compostMaker: FaLeaf,
-    sanitaryCrew: FaToilet,
-    wtpOperator: FaWater,
-    bovPartners: FaHandsHelping,
-    nalJalMitra: FaHandHoldingWater,
-    solarPumpEngineer: FaSun, // Placeholder
-    pondExcavator: FaSun,
-  };
 
   // Hospital data for Odisha districts (dummy data)
   const hospitalData = [
-    {
-      name: "Angul",
-      masons: 40,
-      electricians: 25,
-      plumbers: 30,
-      sanitarySesspoolOperator: 10,
-      fstpHandler: 40,
-      compostMakers: 5,
-      sanitaryCrew: 50,
-      wtpoperator: 15,
-      bovPartners: 8,
-      nalJalMitra: 12,
-      solarPumpEngineer: 10,
-      pondExcavator: 7,
-      total: 252,
-    },
-    {
-      name: "Baleshwar",
-      masons: 70,
-      electricians: 35,
-      plumbers: 40,
-      sanitarySesspoolOperator: 25,
-      fstpHandler: 70,
-      compostMakers: 10,
-      sanitaryCrew: 60,
-      wtpoperator: 20,
-      bovPartners: 12,
-      nalJalMitra: 15,
-      solarPumpEngineer: 12,
-      pondExcavator: 9,
-      total: 378,
-    },
-    {
-      name: "Bargarh",
-      masons: 60,
-      electricians: 30,
-      plumbers: 35,
-      sanitarySesspoolOperator: 15,
-      fstpHandler: 40,
-      compostMakers: 5,
-      sanitaryCrew: 50,
-      wtpoperator: 10,
-      bovPartners: 5,
-      nalJalMitra: 8,
-      solarPumpEngineer: 5,
-      pondExcavator: 3,
-      total: 266,
-    },
-    {
-      name: "Bhadrak",
-      masons: 50,
-      electricians: 25,
-      plumbers: 30,
-      sanitarySesspoolOperator: 20,
-      fstpHandler: 45,
-      compostMakers: 6,
-      sanitaryCrew: 55,
-      wtpoperator: 11,
-      bovPartners: 6,
-      nalJalMitra: 9,
-      solarPumpEngineer: 7,
-      pondExcavator: 4,
-      total: 268,
-    },
-    {
-      name: "Balangir",
-      masons: 65,
-      electricians: 40,
-      plumbers: 40,
-      sanitarySesspoolOperator: 15,
-      fstpHandler: 50,
-      compostMakers: 3,
-      sanitaryCrew: 60,
-      wtpoperator: 12,
-      bovPartners: 9,
-      nalJalMitra: 10,
-      solarPumpEngineer: 6,
-      pondExcavator: 5,
-      total: 305,
-    },
-    {
-      name: "Boudh",
-      masons: 20,
-      electricians: 10,
-      plumbers: 10,
-      sanitarySesspoolOperator: 5,
-      fstpHandler: 15,
-      compostMakers: 0,
-      sanitaryCrew: 15,
-      wtpoperator: 2,
-      bovPartners: 1,
-      nalJalMitra: 0,
-      solarPumpEngineer: 0,
-      pondExcavator: 0,
-      total: 73,
-    },
-    {
-      name: "Cuttack",
-      masons: 150,
-      electricians: 90,
-      plumbers: 80,
-      sanitarySesspoolOperator: 30,
-      fstpHandler: 100,
-      compostMakers: 20,
-      sanitaryCrew: 130,
-      wtpoperator: 25,
-      bovPartners: 15,
-      nalJalMitra: 20,
-      solarPumpEngineer: 15,
-      pondExcavator: 10,
-      total: 650,
-    },
-    {
-      name: "Debagarh",
-      masons: 10,
-      electricians: 7,
-      plumbers: 5,
-      sanitarySesspoolOperator: 3,
-      fstpHandler: 10,
-      compostMakers: 1,
-      sanitaryCrew: 12,
-      wtpoperator: 1,
-      bovPartners: 0,
-      nalJalMitra: 0,
-      solarPumpEngineer: 0,
-      pondExcavator: 0,
-      total: 49,
-    },
-    {
-      name: "Dhenkanal",
-      masons: 55,
-      electricians: 30,
-      plumbers: 35,
-      sanitarySesspoolOperator: 10,
-      fstpHandler: 45,
-      compostMakers: 4,
-      sanitaryCrew: 60,
-      wtpoperator: 9,
-      bovPartners: 5,
-      nalJalMitra: 3,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 254,
-    },
-    {
-      name: "Gajapati",
-      masons: 40,
-      electricians: 25,
-      plumbers: 20,
-      sanitarySesspoolOperator: 8,
-      fstpHandler: 30,
-      compostMakers: 2,
-      sanitaryCrew: 40,
-      wtpoperator: 4,
-      bovPartners: 2,
-      nalJalMitra: 5,
-      solarPumpEngineer: 3,
-      pondExcavator: 2,
-      total: 171,
-    },
-    {
-      name: "Ganjam",
-      masons: 140,
-      electricians: 90,
-      plumbers: 80,
-      sanitarySesspoolOperator: 33,
-      fstpHandler: 130,
-      compostMakers: 25,
-      sanitaryCrew: 140,
-      wtpoperator: 20,
-      bovPartners: 18,
-      nalJalMitra: 28,
-      solarPumpEngineer: 22,
-      pondExcavator: 15,
-      total: 795,
-    },
-    {
-      name: "Jagatsinghapur",
-      masons: 60,
-      electricians: 40,
-      plumbers: 30,
-      sanitarySesspoolOperator: 10,
-      fstpHandler: 50,
-      compostMakers: 4,
-      sanitaryCrew: 55,
-      wtpoperator: 6,
-      bovPartners: 3,
-      nalJalMitra: 2,
-      solarPumpEngineer: 1,
-      pondExcavator: 1,
-      total: 212,
-    },
-    {
-      name: "Jajapur",
-      masons: 75,
-      electricians: 55,
-      plumbers: 50,
-      sanitarySesspoolOperator: 20,
-      fstpHandler: 60,
-      compostMakers: 8,
-      sanitaryCrew: 80,
-      wtpoperator: 10,
-      bovPartners: 5,
-      nalJalMitra: 4,
-      solarPumpEngineer: 2,
-      pondExcavator: 2,
-      total: 371,
-    },
-    {
-      name: "Jharsuguda",
-      masons: 20,
-      electricians: 10,
-      plumbers: 10,
-      sanitarySesspoolOperator: 5,
-      fstpHandler: 15,
-      compostMakers: 0,
-      sanitaryCrew: 12,
-      wtpoperator: 1,
-      bovPartners: 1,
-      nalJalMitra: 0,
-      solarPumpEngineer: 0,
-      pondExcavator: 0,
-      total: 74,
-    },
-    {
-      name: "Kalahandi",
-      masons: 55,
-      electricians: 30,
-      plumbers: 25,
-      sanitarySesspoolOperator: 12,
-      fstpHandler: 45,
-      compostMakers: 3,
-      sanitaryCrew: 25,
-      wtpoperator: 10,
-      bovPartners: 4,
-      nalJalMitra: 6,
-      solarPumpEngineer: 2,
-      pondExcavator: 2,
-      total: 214,
-    },
-    {
-      name: "Kandhamal",
-      masons: 35,
-      electricians: 25,
-      plumbers: 20,
-      sanitarySesspoolOperator: 5,
-      fstpHandler: 20,
-      compostMakers: 2,
-      sanitaryCrew: 20,
-      wtpoperator: 2,
-      bovPartners: 1,
-      nalJalMitra: 3,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 182,
-    },
-    {
-      name: "Kendrapara",
-      masons: 50,
-      electricians: 30,
-      plumbers: 25,
-      sanitarySesspoolOperator: 20,
-      fstpHandler: 50,
-      compostMakers: 5,
-      sanitaryCrew: 50,
-      wtpoperator: 10,
-      bovPartners: 5,
-      nalJalMitra: 5,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 250,
-    },
-    {
-      name: "Khurda",
-      masons: 80,
-      electricians: 50,
-      plumbers: 40,
-      sanitarySesspoolOperator: 15,
-      fstpHandler: 65,
-      compostMakers: 10,
-      sanitaryCrew: 75,
-      wtpoperator: 10,
-      bovPartners: 8,
-      nalJalMitra: 12,
-      solarPumpEngineer: 8,
-      pondExcavator: 6,
-      total: 392,
-    },
-    {
-      name: "Koraput",
-      masons: 25,
-      electricians: 15,
-      plumbers: 10,
-      sanitarySesspoolOperator: 5,
-      fstpHandler: 20,
-      compostMakers: 2,
-      sanitaryCrew: 15,
-      wtpoperator: 1,
-      bovPartners: 1,
-      nalJalMitra: 2,
-      solarPumpEngineer: 1,
-      pondExcavator: 0,
-      total: 92,
-    },
-    {
-      name: "Malkangiri",
-      masons: 20,
-      electricians: 10,
-      plumbers: 5,
-      sanitarySesspoolOperator: 2,
-      fstpHandler: 10,
-      compostMakers: 0,
-      sanitaryCrew: 10,
-      wtpoperator: 1,
-      bovPartners: 0,
-      nalJalMitra: 0,
-      solarPumpEngineer: 0,
-      pondExcavator: 0,
-      total: 58,
-    },
-    {
-      name: "Mayurbhanj",
-      masons: 75,
-      electricians: 50,
-      plumbers: 40,
-      sanitarySesspoolOperator: 10,
-      fstpHandler: 50,
-      compostMakers: 5,
-      sanitaryCrew: 50,
-      wtpoperator: 5,
-      bovPartners: 2,
-      nalJalMitra: 3,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 339,
-    },
-    {
-      name: "Nabarangpur",
-      masons: 35,
-      electricians: 25,
-      plumbers: 20,
-      sanitarySesspoolOperator: 5,
-      fstpHandler: 20,
-      compostMakers: 2,
-      sanitaryCrew: 15,
-      wtpoperator: 2,
-      bovPartners: 1,
-      nalJalMitra: 3,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 153,
-    },
-    {
-      name: "Nayagarh",
-      masons: 40,
-      electricians: 25,
-      plumbers: 20,
-      sanitarySesspoolOperator: 10,
-      fstpHandler: 20,
-      compostMakers: 2,
-      sanitaryCrew: 20,
-      wtpoperator: 5,
-      bovPartners: 2,
-      nalJalMitra: 3,
-      solarPumpEngineer: 1,
-      pondExcavator: 1,
-      total: 219,
-    },
-    {
-      name: "Nuapada",
-      masons: 25,
-      electricians: 15,
-      plumbers: 10,
-      sanitarySesspoolOperator: 5,
-      fstpHandler: 20,
-      compostMakers: 1,
-      sanitaryCrew: 10,
-      wtpoperator: 2,
-      bovPartners: 1,
-      nalJalMitra: 3,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 70,
-    },
-    {
-      name: "Puri",
-      masons: 50,
-      electricians: 30,
-      plumbers: 25,
-      sanitarySesspoolOperator: 10,
-      fstpHandler: 50,
-      compostMakers: 5,
-      sanitaryCrew: 55,
-      wtpoperator: 6,
-      bovPartners: 3,
-      nalJalMitra: 4,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 237,
-    },
-    {
-      name: "Rayagada",
-      masons: 25,
-      electricians: 15,
-      plumbers: 10,
-      sanitarySesspoolOperator: 5,
-      fstpHandler: 20,
-      compostMakers: 2,
-      sanitaryCrew: 12,
-      wtpoperator: 1,
-      bovPartners: 1,
-      nalJalMitra: 3,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 90,
-    },
-    {
-      name: "Sambalpur",
-      masons: 45,
-      electricians: 25,
-      plumbers: 30,
-      sanitarySesspoolOperator: 12,
-      fstpHandler: 45,
-      compostMakers: 2,
-      sanitaryCrew: 20,
-      wtpoperator: 3,
-      bovPartners: 2,
-      nalJalMitra: 1,
-      solarPumpEngineer: 1,
-      pondExcavator: 1,
-      total: 213,
-    },
-    {
-      name: "Sonepur",
-      masons: 30,
-      electricians: 20,
-      plumbers: 10,
-      sanitarySesspoolOperator: 5,
-      fstpHandler: 20,
-      compostMakers: 0,
-      sanitaryCrew: 8,
-      wtpoperator: 1,
-      bovPartners: 0,
-      nalJalMitra: 0,
-      solarPumpEngineer: 0,
-      pondExcavator: 0,
-      total: 94,
-    },
-    {
-      name: "Sundergarh",
-      masons: 50,
-      electricians: 40,
-      plumbers: 35,
-      sanitarySesspoolOperator: 10,
-      fstpHandler: 55,
-      compostMakers: 7,
-      sanitaryCrew: 50,
-      wtpoperator: 15,
-      bovPartners: 3,
-      nalJalMitra: 5,
-      solarPumpEngineer: 2,
-      pondExcavator: 1,
-      total: 269,
-    },
+    { name: "Angul", total: 120 },
+    { name: "Balangir", total: 90 },
+    { name: "Balasore", total: 150 },
+    { name: "Bargarh", total: 60 },
+    { name: "Bhadrak", total: 110 },
+    { name: "Boudh", total: 80 },
+    { name: "Cuttack", total: 210 },
+    { name: "Deogarh", total: 40 },
+    { name: "Dhenkanal", total: 100 },
+    { name: "Gajapati", total: 70 },
+    { name: "Ganjam", total: 230 },
+    { name: "Jagatsinghpur", total: 95 },
+    { name: "Jajpur", total: 160 },
+    { name: "Jharsuguda", total: 50 },
+    { name: "Kalahandi", total: 120 },
+    { name: "Kandhamal", total: 85 },
+    { name: "Kendrapara", total: 130 },
+    { name: "Kendujhar", total: 105 },
+    { name: "Khordha", total: 300 },
+    { name: "Koraput", total: 75 },
+    { name: "Malkangiri", total: 40 },
+    { name: "Mayurbhanj", total: 140 },
+    { name: "Nabarangpur", total: 55 },
+    { name: "Nayagarh", total: 90 },
+    { name: "Nuapada", total: 45 },
+    { name: "Puri", total: 180 },
+    { name: "Rayagada", total: 65 },
+    { name: "Sambalpur", total: 170 },
+    { name: "Subarnapur", total: 30 },
+    { name: "Sundargarh", total: 200 },
   ];
 
   useEffect(() => {
@@ -535,36 +68,7 @@ const UsersMap = () => {
   // Function to get the crew data based on the selected tab
   const getCrewData = (districtName) => {
     const district = hospitalData.find((d) => d.name === districtName);
-    if (!district) return 0;
-
-    switch (selectedTab) {
-      case "mason":
-        return district.masons;
-      case "electrician":
-        return district.electricians;
-      case "plumber":
-        return district.plumbers;
-      case "cesspoolOperator":
-        return district.sanitarySesspoolOperator;
-      case "fstpHandler":
-        return district.fstpHandler;
-      case "compostMakers":
-        return district.compostMakers;
-      case "sanitaryCrew":
-        return district.sanitaryCrew;
-      case "wtpOperator":
-        return district.wtpoperator;
-      case "bovPartners":
-        return district.bovPartners;
-      case "nalJalMitra":
-        return district.nalJalMitra;
-      case "solarPumpEngineer":
-        return district.solarPumpEngineer;
-      case "pondExcavator":
-        return district.pondExcavator;
-      default:
-        return district.total; // Return total data if tab is "total"
-    }
+    return district ? district.total : 0;
   };
 
   // Event handlers for each district
@@ -653,47 +157,6 @@ const UsersMap = () => {
   return (
     <div className="flex flex-col lg:flex-row lg:w-[90vw] w-full relative ring-1 ring-white pt-6 rounded-md">
       <div className="relative bg-transparent w-full lg:w-3/5 p-6">
-        {/* Tab Navigation */}
-        <div className="flex overflow-x-auto mb-4">
-          {[
-            "total",
-            "mason",
-            "electrician",
-            "plumber",
-            "sanitarySesspoolOperator",
-            "fstpHandler",
-            "compostMaker",
-            "sanitaryCrew",
-            "wtpOperator",
-            "bovPartners",
-            "nalJalMitra",
-            "solarPumpEngineer",
-            "pondExcavator",
-          ].map((tab) => {
-            const IconComponent = categoryIcons[tab] || FaUsers; // Default icon if not found
-            return (
-              <button
-                key={tab}
-                className={`flex w-[150px] justify-center border-x-2 bordr-white items-center space-x-1 py-2 px-4 transition-all duration-300 ease-in-out ${
-                  selectedTab === tab
-                    ? "bg-gradient-to-r from-blue-500 to-indigo-600 text-white shadow-lg transform scale-105"
-                    : "bg-transparent text-white hover:bg-gray-300 hover:shadow-md"
-                }`}
-                onClick={() => setSelectedTab(tab)}
-                aria-pressed={selectedTab === tab}
-              >
-                {/* Render the icon */}
-                <IconComponent className="h-5 w-5" />
-                <span className="capitalize">
-                  {tab
-                    .replace(/([A-Z])/g, " $1")
-                    .replace(/^./, (str) => str.toUpperCase())}
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
         {/* Display Data */}
         <div className="absolute bg-gray-900 text-white p-4">
           <h1 className="text-xl font-bold mb-4">MoWash Users</h1>
@@ -707,15 +170,6 @@ const UsersMap = () => {
                 {!hoveredDistrict ? totalWorkers : hoveredDistrictData?.total}
               </strong>
             </div>
-            {/* Dynamically display relevant crew data based on selected tab */}
-            {selectedTab !== "total" && hoveredDistrictData && (
-              <div>
-                {selectedTab
-                  .replace(/([A-Z])/g, " $1")
-                  .replace(/^./, (str) => str.toUpperCase())}
-                : <strong>{getCrewData(hoveredDistrict)}</strong>
-              </div>
-            )}
           </>
         </div>
 
@@ -797,30 +251,13 @@ const UsersMap = () => {
               <tr>
                 <th className="p-2 border-b">District</th>
                 <th className="p-2 border-b">Total Workers</th>
-                {categories.map((category) => (
-                  <th key={category} className="p-2 border-b">
-                    {category
-                      .replace(/([A-Z])/g, " $1")
-                      .replace(/^./, (str) => str.toUpperCase())}
-                  </th>
-                ))}
               </tr>
             </thead>
             <tbody>
-              {hospitalData.map(({ name, total, ...rest }) => (
+              {hospitalData.map(({ name, total }) => (
                 <tr key={name} className="border-b">
-                  <td className="p-2">{name}</td>
-                  <td className="p-2 text-yellow-300">{total}</td>
-                  {categories.map((category) => (
-                    <td
-                      key={category}
-                      className={`p-2 ${
-                        selectedTab === category ? "bg-blue-200" : ""
-                      }`}
-                    >
-                      {rest[category]}
-                    </td>
-                  ))}
+                  <td className="p-2 text-center">{name}</td>
+                  <td className="p-2 text-center text-yellow-300">{total}</td>
                 </tr>
               ))}
             </tbody>

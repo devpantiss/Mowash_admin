@@ -9,7 +9,7 @@ const PieChartSection = () => {
 
   return (
     <div className="p-8 bg-transparent text-white">
-      <h1 className="text-3xl font-bold mb-6">Demographics Dashboard</h1>
+      <h1 className="text-3xl font-bold mb-6">MWE Demographics</h1>
       <div className="flex gap-x-4 justify-center items-center">
         {/* Age Distribution */}
         <CustomPieChart

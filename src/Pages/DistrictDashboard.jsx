@@ -33,9 +33,40 @@ const districtsData = [
 const DistrictDashboard = () => {
   const [activeTab, setActiveTab] = useState("jobs"); // State to track active tab
 
+  // Helper function to calculate total for jobs/revenue or workers/income
+  const calculateTotal = (key) => {
+    return districtsData.reduce((total, district) => {
+      const value = parseFloat(district[key].replace(/[^\d.]/g, ""));
+      return total + value;
+    }, 0);
+  };
+
+  const totalJobs = calculateTotal("jobsCompleted").toFixed(2) + " Cr";
+  const totalRevenue = calculateTotal("totalRevenue").toFixed(2) + " Cr";
+  const totalWorkers = calculateTotal("totalWorkers").toFixed(2) + " K";
+  const totalIncome = calculateTotal("totalIncome").toFixed(2) + " Cr";
+
   return (
     <div className="p-8 bg-transparent text-white min-h-screen">
-      <div className="text-2xl font-bold mb-4">Districts of Odisha</div>
+      <div className="text-2xl font-bold mb-4 flex justify-between">
+        <span>Districts of Odisha</span>
+        {/* Display total count on the top-right */}
+        {activeTab === "jobs" ? (
+          <div className="text-right">
+            <p className="text-5xl font-extrabold">{totalJobs}</p>
+            <p className="text-sm">Total Jobs Completed</p>
+            <p className="text-5xl font-extrabold mt-2">{totalRevenue}</p>
+            <p className="text-sm">Total Revenue (₹)</p>
+          </div>
+        ) : (
+          <div className="text-right">
+            <p className="text-5xl font-extrabold">{totalWorkers}</p>
+            <p className="text-sm">Total Workers</p>
+            <p className="text-5xl font-extrabold mt-2">{totalIncome}</p>
+            <p className="text-sm">Total Income (₹)</p>
+          </div>
+        )}
+      </div>
 
       {/* Tabs */}
       <div className="mb-4">
