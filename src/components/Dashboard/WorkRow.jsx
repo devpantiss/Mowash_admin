@@ -9,7 +9,15 @@ import {
   ResponsiveContainer,
 } from "recharts";
 
-// Sample data for the bar graph (Waste disposed over the last 12 months)
+// Sample data for the water bodies rejuvenation graph
+const waterData = [
+  { type: "Ponds Rejuvenated", count: 532 },
+  { type: "New Ponds Excavated", count: 123 },
+  { type: "Wetlands Rejuvenated", count: 78 },
+  { type: "Creeks Rejuvenated", count: 501 },
+];
+
+// Sample data for the waste disposal graph (monthly)
 const wasteData = [
   { month: "J", waste: 50 },
   { month: "F", waste: 60 },
@@ -29,12 +37,7 @@ const workCardData = [
   {
     title: "Total Water Bodies Rejuvenated",
     value: "1,234",
-    subSections: [
-      { label: "Ponds Rejuvenated", value: "532" },
-      { label: "New Ponds Excavated", value: "123" },
-      { label: "Wetlands Rejuvenated", value: "78" },
-      { label: "Creeks Rejuvenated", value: "501" },
-    ],
+    chartData: waterData, // Reference to the water rejuvenation data
     backgroundColor: "bg-blue-900",
     colSpan: 2,
   },
@@ -57,11 +60,11 @@ const workCardData = [
   },
 ];
 
-const CustomTooltip = ({ active, payload }) => {
+const CustomTooltip = ({ active, payload, label }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white text-black p-2 rounded shadow-lg">
-        <p>{`${payload[0].value} Tons`}</p>
+        <p>{`${label}: ${payload[0].value}`}</p>
       </div>
     );
   }
@@ -78,21 +81,58 @@ const WorkRow = () => {
         >
           <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
           <p className="text-2xl font-bold mb-2">{card.value}</p>
-          <hr className="border-white my-2" />
 
+          {/* Render bar chart for Water Bodies Rejuvenated */}
+          {card.chartData && (
+            <div className="mt-4">
+              <hr className="border-white my-2" />
+              <ResponsiveContainer width="100%" height={100}>
+                <BarChart data={card.chartData}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis
+                    dataKey="type"
+                    tick={{ fontSize: 12, fill: "#FFF" }} // Adjust font size and color for X-axis
+                    tickSize={5} // Adjust tick size for better spacing
+                    tickMargin={5} // Adjust margin below the tick for better alignment
+                    axisLine={false} // Remove X-axis line for a cleaner look
+                    tickLine={false} // Remove tick lines
+                  />
+                  <YAxis
+                    tick={{
+                      fontSize: 10,
+                      fill: "#FFF",
+                      fontWeight: "bold",
+                    }}
+                    tickLine={false}
+                    axisLine={false}
+                    width={20}
+                    domain={[0, 600]} // Set the domain based on the max value
+                  />
+                  <Tooltip content={<CustomTooltip />} />
+                  <Bar dataKey="count" fill="#FFA500" />
+                </BarChart>
+              </ResponsiveContainer>
+              <p className="text-xs mt-2">Water bodies rejuvenation data</p>
+            </div>
+          )}
+
+          {/* Render subsections for other cards */}
           {card.subSections && (
-            <div className="flex gap-x-4 text-center">
+            <>
+              <hr className="border-white my-2" />
               {card.subSections.map((section, i) => (
                 <div key={i} className="mb-2">
                   <p className="text-sm text-gray-300">{section.label}</p>
                   <p className="font-bold">{section.value}</p>
                 </div>
               ))}
-            </div>
+            </>
           )}
 
+          {/* Render bar chart for Waste Disposed */}
           {card.chart && (
             <div className="mt-4">
+              <hr className="border-white my-2" />
               <ResponsiveContainer width="100%" height={100}>
                 <BarChart data={wasteData}>
                   <CartesianGrid strokeDasharray="3 3" />
