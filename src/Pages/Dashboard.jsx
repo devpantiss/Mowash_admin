@@ -7,6 +7,7 @@ import WorkCards from '../components/Dashboard/WorkCards'
 import SalesSummary from '../components/Dashboard/SalesSummary'
 import QuickLinks from '../components/Dashboard/QuickLinks'
 import UsersMap from '../components/Dashboard/UsersMap'
+import WorkRow from '../components/Dashboard/WorkRow'
 const Dashboard = () => {
 
 
@@ -15,6 +16,7 @@ const Dashboard = () => {
       <FirstRow />
       <WorkersMap />
       <PieChartSection />
+      <WorkRow />
       <WorksDoneMap />
       <WorkCards />
       <UsersMap />

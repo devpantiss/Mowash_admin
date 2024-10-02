@@ -41,15 +41,6 @@ const cardData = [
         backgroundColor: 'bg-blue-800',
     },
     {
-        title: 'Total Toilets',
-        value: '9,509',
-        subText: 'Retrofitted',
-        subValue: '8,530',
-        additionalText: 'Dibyanjan Friendly',
-        additionalValue: '979',
-        backgroundColor: 'bg-blue-700',
-    },
-    {
         title: 'Total Jobs Executed',
         value: '4.11 Cr.',
         subText: 'Govt.',
@@ -83,7 +74,12 @@ const FirstRow = () => {
     return (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 p-4">
             {cardData.map((card, index) => (
-                <div key={index} className={`p-4 rounded-lg ${card.backgroundColor} text-white`}>
+                <div
+                    key={index}
+                    className={`p-4 rounded-lg ${card.backgroundColor} text-white ${
+                        card.chart ? 'lg:col-span-2' : ''
+                    }`} // Make the card with the chart span 2 columns
+                >
                     <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
                     <p className="text-2xl font-bold mb-2">{card.value}</p>
 

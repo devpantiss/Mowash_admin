@@ -42,7 +42,7 @@ const renderActiveShape = (props) => {
   );
 };
 
-const CustomPieChart = ({ data, labels }) => {
+const CustomPieChart = ({ data, labels, title }) => {
   // Format the data for Recharts Pie
   const formattedData = data.map((value, index) => ({
     name: labels[index],
@@ -56,7 +56,8 @@ const CustomPieChart = ({ data, labels }) => {
   };
 
   return (
-    <div className="w-full ring-2 ring-white rounded-md flex justify-center items-center p-4">
+    <div className="w-full ring-2 ring-white rounded-md flex flex-col justify-center items-center p-4">
+      <h1 className='text-xl font-bold text-left'>{title}</h1>
       <PieChart width={500} height={350}>
         <Pie
           activeIndex={activeIndex}

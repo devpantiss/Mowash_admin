@@ -18,7 +18,8 @@ const GenderDistribution = () => {
   ];
 
   return (
-    <div className="w-full ring-2 ring-white rounded-md flex justify-center items-center p-6 bg-transparent text-white">
+    <div className="w-full ring-2 ring-white rounded-md flex flex-col justify-center items-center p-6 bg-transparent text-white">
+      <h1 className='text-xl font-bold text-left'>Gender</h1>
       {/* Pie chart for gender distribution */}
       <div className="flex items-center">
         <PieChart width={250} height={350}>

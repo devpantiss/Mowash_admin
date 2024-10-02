@@ -15,6 +15,7 @@ const PieChartSection = () => {
         <CustomPieChart
           data={ageData}
           labels={['0-18 Yrs', '19-45 Yrs', '46-60 Yrs', '60+ Yrs']}
+          title={"Age"}
         />
 
         {/* Gender Distribution (Icon-based as in the image) */}
@@ -24,6 +25,7 @@ const PieChartSection = () => {
         <CustomPieChart
           data={socialStatusData}
           labels={['Low', 'Middle', 'High']}
+          title={"Economic"}
         />
       </div>
     </div>
