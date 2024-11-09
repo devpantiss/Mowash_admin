@@ -3,8 +3,13 @@ import './App.css'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Layout from './components/common/Layout/Layout'
 import Dashboard from './Pages/Dashboard'
-import Page2 from './Pages/Page2'
 import DistrictDashboard from './Pages/DistrictDashboard'
+import MoWashOnboardingCenters from './Pages/MowashOnboardingCenters'
+import MoWashServiceProvidersList from './Pages/MoWashServiceProvidersList'
+import MoWashServicesListing from './Pages/MoWashServicesListing'
+import MoWashWelfareKendra from './Pages/MoWashWelfareKendra'
+import MoWashDetails from './Pages/MoWashDetails'
+
 
 
 function App() {
@@ -18,7 +23,11 @@ function App() {
         <Route path="/" element={<Layout />}>
           <Route index element={<Dashboard />}/>
           <Route path="page1" element={<DistrictDashboard />}/>
-          <Route path="page2" element={<Page2 />}/>
+          <Route path="onboarding-centers" element={<MoWashOnboardingCenters />}/>
+          <Route path="total-service-providers" element={<MoWashServiceProvidersList />}/>
+          <Route path="total-services" element={<MoWashServicesListing />}/>
+          <Route path="welfare-kendra" element={<MoWashWelfareKendra />}/>
+          <Route path="about" element={<MoWashDetails />}/>
         </Route>
       </Routes>
     </Router>

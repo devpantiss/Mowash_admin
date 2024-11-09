@@ -27,48 +27,36 @@ const data = [
 
 const cardData = [
     {
-        title: 'Total Mowash Engineers',
-        value: '4.79 Cr.',
-        subText: 'Total Households Benefitted',
-        subValue: '119.5 Lakhs',
+        title: 'Total Toilets Constructed',
+        value: '10,509',
+        subText: 'Retrofitted',
+        subValue: '8,530',
         backgroundColor: 'bg-blue-900',
         chart: true,
     },
     {
-        title: 'Total Users',
-        value: '3.56 Cr.',
-        subText: 'Households Covered',
-        subValue: '99.09 Lakhs (83%)',
+        title: 'Total Water Bodies Rejuvenated',
+        value: '2,150',
+        subText: 'Water Supplied (MLD)',
+        subValue: '1,900 MLD',
         backgroundColor: 'bg-blue-800',
         chart: true,
     },
     {
-        title: 'Total Toilets',
-        value: '9,509',
-        subText: 'Retrofitted',
-        subValue: '8,530',
-        additionalText: 'Dibyanjan Friendly',
-        additionalValue: '979',
+        title: 'Total Waste Disposed',
+        value: '5,000 Tons',
+        subText: 'Recycled',
+        subValue: '3,500 Tons',
         backgroundColor: 'bg-blue-700',
         chart: true,
     },
     {
-        title: 'Total Jobs Executed',
-        value: '4.11 Cr.',
-        subText: 'Govt.',
-        subValue: '3.98 Cr.',
-        additionalText: 'Private',
-        additionalValue: '13,14,041',
+        title: 'Total Wash Products Sold',
+        value: '1.2 Million',
+        subText: 'Total Revenue',
+        subValue: '₹ 150 Cr.',
         backgroundColor: 'bg-blue-600',
         chart: true,
-    },
-    {
-        title: 'Total Revenue Generated',
-        value: '₹ 2767.51 Cr.',
-        subText: 'Govt.',
-        subValue: '3.98 Cr.',
-        chart: true,
-        backgroundColor: 'bg-blue-500',
     },
 ];
 
@@ -87,7 +75,7 @@ const yAxisTickFormatter = (value) => `${value} Cr.`;
 
 const WorkCards = () => {
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 p-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
             {cardData.map((card, index) => (
                 <div key={index} className={`p-4 rounded-lg ${card.backgroundColor} text-white`}>
                     <h3 className="text-lg font-semibold mb-2">{card.title}</h3>
@@ -100,13 +88,6 @@ const WorkCards = () => {
                             <p className="font-bold">{card.subValue}</p>
                         </>
                     )}
-
-                    {/* {card.additionalText && (
-                        <>
-                            <p className="text-sm text-gray-300">{card.additionalText}</p>
-                            <p className="font-bold">{card.additionalValue}</p>
-                        </>
-                    )} */}
 
                     {card.chart && (
                         <div className="mt-4">
