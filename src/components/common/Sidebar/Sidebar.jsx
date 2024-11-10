@@ -20,7 +20,7 @@ const Sidebar = () => {
               location.pathname === "/" ? "bg-blue-400" : ""
             }`}
           >
-            <Link to="/" className="flex flex-col justify-center items-center">
+            <Link to="/dashboard" className="flex flex-col justify-center items-center">
               <img
                 src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1727687361/dashboard_toalae.svg"
                 className="w-[50px]"
@@ -36,7 +36,7 @@ const Sidebar = () => {
             }`}
           >
             <Link
-              to="/page1"
+              to="/dashboard/page1"
               className="flex flex-col justify-center items-center"
             >
               <img
@@ -54,7 +54,7 @@ const Sidebar = () => {
             }`}
           >
             <Link
-              to="/onboarding-centers"
+              to="/dashboard/onboarding-centers"
               className="flex flex-col justify-center items-center"
             >
               <img
@@ -74,7 +74,7 @@ const Sidebar = () => {
             }`}
           >
             <Link
-              to="/total-service-providers"
+              to="/dashboard/total-service-providers"
               className="flex flex-col justify-center items-center"
             >
               <img
@@ -92,7 +92,7 @@ const Sidebar = () => {
             }`}
           >
             <Link
-              to="/total-services"
+              to="/dashboard/total-services"
               className="flex flex-col justify-center items-center"
             >
               <img
@@ -110,7 +110,7 @@ const Sidebar = () => {
             }`}
           >
             <Link
-              to="/welfare-kendra"
+              to="/dashboard/welfare-kendra"
               className="flex flex-col justify-center items-center"
             >
               <img
@@ -128,7 +128,7 @@ const Sidebar = () => {
             }`}
           >
             <Link
-              to="/about"
+              to="/dashboard/about"
               className="flex flex-col justify-center items-center"
             >
               <img
