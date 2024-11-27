@@ -10,12 +10,18 @@ const HomePage = () => {
         autoPlay
         loop
         muted
+        playsInline
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         aria-hidden="true"
+        preload="auto" // Preloads the video for faster playback
       >
         <source
           src="https://res.cloudinary.com/dgtc2fvgu/video/upload/v1727334535/InShot_20240918_133111349_uzzbqn.mp4"
           type="video/mp4"
+        />
+        <source
+          src="https://example.com/video.webm"
+          type="video/webm"
         />
         Your browser does not support the video tag.
       </video>
