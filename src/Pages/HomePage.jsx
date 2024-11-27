@@ -19,15 +19,11 @@ const HomePage = () => {
           src="https://res.cloudinary.com/dgtc2fvgu/video/upload/v1727334535/InShot_20240918_133111349_uzzbqn.mp4"
           type="video/mp4"
         />
-        <source
-          src="https://example.com/video.webm"
-          type="video/webm"
-        />
         Your browser does not support the video tag.
       </video>
 
       {/* Black translucent overlay */}
-      <div className="absolute inset-0 bg-black/60 z-10"></div>
+      <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Logo */}
       <div className="absolute top-6 left-6 z-20">
