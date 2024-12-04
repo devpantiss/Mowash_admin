@@ -78,16 +78,16 @@ const ClaimSummaryTable = () => {
   return (
     <div className="p-8 bg-transparent mt-4 ring-2 ring-gray-700 rounded-md text-white">
       <h1 className="text-3xl font-bold mb-4 border-b-2 border-gray-600">
-        Claim Summary <span className="text-orange-400">31,96,445</span>
+        District-Wise Revenue <span className="text-orange-400">31,96,445</span>
       </h1>
-      <div className="flex space-x-4">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 lg:gap-x-4">
         {tableColumns.map((column, index) => (
           <div key={index} className="flex-1">
             <table className="min-w-full table-auto border-collapse">
               <thead>
                 <tr className="bg-green-800 text-left">
                   <th className="p-2">District</th>
-                  <th className="p-2">No. of Claims</th>
+                  <th className="p-2">No. of Orders</th>
                   <th className="p-2">Monthly Trend</th>
                 </tr>
               </thead>

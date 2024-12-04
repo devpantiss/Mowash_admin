@@ -165,7 +165,7 @@ const UsersMap = () => {
               {!hoveredDistrict ? "Odisha" : hoveredDistrict}
             </h2>
             <div>
-              Total Workers:{" "}
+              Total Users:{" "}
               <strong>
                 {!hoveredDistrict ? totalWorkers : hoveredDistrictData?.total}
               </strong>
@@ -250,7 +250,7 @@ const UsersMap = () => {
             <thead className="sticky -top-[30px] p-4 bg-gray-900">
               <tr>
                 <th className="p-2 border-b">District</th>
-                <th className="p-2 border-b">Total Workers</th>
+                <th className="p-2 border-b">Total Users</th>
               </tr>
             </thead>
             <tbody>

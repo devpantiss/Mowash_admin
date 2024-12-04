@@ -1,8 +1,6 @@
 import React from "react";
-import dynamic from "next/dynamic";
+import ReachMap from "./ReachMap";
 
-// Dynamically import ReachMap with SSR disabled
-const ReachMap = dynamic(() => import("./ReachMap"), { ssr: false });
 
 const ReachSection = () => {
   return (

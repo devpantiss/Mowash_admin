@@ -94,7 +94,7 @@ const Row2 = () => {
                 </button>
             </div>
 
-            <div className="grid grid-cols-3 gap-x-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-6 lg:gap-x-6">
                 {/* Amount Claimed vs Card Holders Count */}
             <div className="bg-blue-900 p-4 rounded-lg">
                 <h3 className="text-lg font-semibold mb-4">Amount Claimed v/s Card Holders Count</h3>

@@ -6,6 +6,7 @@ import WhyToBeBanner from "../components/Homepage/WhyToBeBanner";
 import ServiceSection from "../components/Homepage/ServiceSection";
 import SDGBanner from "../components/Homepage/SDG/SDGBanner";
 import Footer from "../components/common/Footer";
+import ReachSection from "../components/Homepage/Reach/ReachSection";
 
 const HomePage = () => {
   return (
@@ -16,6 +17,7 @@ const HomePage = () => {
         <ServiceSection />
         <Impact />
         <OurPartners />
+        <ReachSection />
         <Footer />
     </div>
   )
