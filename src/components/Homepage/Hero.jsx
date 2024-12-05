@@ -83,7 +83,7 @@ const Hero = () => {
             <span className="ml-2 inline-block animate-arrow-loop">→</span>
           </a>
           <a
-            href="https://partners.mowash.in/"
+            href="https://mowash-service-sooty.vercel.app/"
             target="_blank"
             rel="noopener noreferrer"
             className="px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300 flex items-center"
