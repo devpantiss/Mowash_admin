@@ -7,12 +7,14 @@ import ServiceSection from "../components/Homepage/ServiceSection";
 import SDGBanner from "../components/Homepage/SDG/SDGBanner";
 import Footer from "../components/common/Footer";
 import ReachSection from "../components/Homepage/Reach/ReachSection";
+import WhatWeDo from "../components/Homepage/WhatWeDo";
 
 const HomePage = () => {
   return (
     <div>
         <Hero />
         <SDGBanner />
+        <WhatWeDo />
         <WhyToBeBanner />
         <ServiceSection />
         <Impact />

@@ -73,7 +73,7 @@ const Hero = () => {
 
         {/* Buttons */}
         <div className="flex flex-col lg:flex-row gap-4 mt-10">
-          <a
+          {/* <a
             href="https://mowash.in/"
             target="_blank"
             rel="noopener noreferrer"
@@ -90,7 +90,7 @@ const Hero = () => {
           >
             Service Provider
             <span className="ml-2 inline-block animate-arrow-loop">→</span>
-          </a>
+          </a> */}
           <Link
             to="/dashboard"
             className="px-6 py-3 text-lg font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition-all duration-300 shadow-lg hover:shadow-2xl focus:outline-none focus:ring-4 focus:ring-blue-300 flex items-center"

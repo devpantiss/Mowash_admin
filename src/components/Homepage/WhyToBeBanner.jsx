@@ -41,7 +41,7 @@ const WhyToBeBanner = () => {
         <div className="hidden md:block h-[350px] w-[2px] bg-black mx-8"></div>
 
         {/* Right Section: MoWash Preneur */}
-        <div className="w-full lg:w-1/2 mt-8 flex flex-col justify-center items-center mx-auto">
+        <div className="w-full lg:w-1/2 flex flex-col justify-center items-center mx-auto">
           <h2 className="text-[44px] md:text-4xl font-bold mb-8">Why to be <span className='text-blue-600'>MoWash</span> Preneur</h2>
           <div className="flex justify-center mt-6 items-center gap-x-6">
             <div className='flex flex-col justify-center items-center'>
