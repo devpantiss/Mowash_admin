@@ -100,7 +100,7 @@ const WhatWeDo = () => {
             loop={true}
             autoplay={{
               delay: 2000,
-              disableOnInteraction: false,
+              disableOnInteraction: true,
             }}
             className="mySwiper w-[400px] md:w-[768px] overflow-auto"
           >
