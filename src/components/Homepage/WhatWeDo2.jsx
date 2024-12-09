@@ -65,7 +65,7 @@ const WhatWeDo2 = () => {
   const nextRef = useRef(null);
 
   return (
-    <section className="bg-blue-600 py-8 px-10 mb-4">
+    <section className="bg-blue-600 py-8 px-10">
       <div className="mx-auto">
         <div className="flex justify-center items-center mb-6">
           <div className="text-center max-w-4xl flex flex-col justify-center items-center">

@@ -1,6 +1,6 @@
 import React from "react";
 import Hero from "../components/Homepage/Hero";
-import OurPartners from "../components/Homepage/OurPartners";
+// import OurPartners from "../components/Homepage/OurPartners";
 import Impact from "../components/Homepage/Impact";
 import WhyToBeBanner from "../components/Homepage/WhyToBeBanner";
 // import ServiceSection from "../components/Homepage/ServiceSection";
@@ -18,16 +18,17 @@ const HomePage = () => {
   return (
     <div>
       <Hero />
-      <SDGBanner />
       <WhatWeDo2 />
+      <SDGBanner />
+      <Impact />
       {/* <WhatWeDo /> */}
       <WhyToBeBanner />
-      <AsSeenOn />
-      <Impact />
 
       {/* <ServiceSection /> */}
       <Summit />
-      <OurPartners />
+      <AsSeenOn />
+
+      {/* <OurPartners /> */}
       <Spotlight />
       <Partners />
       <ReachSection />
