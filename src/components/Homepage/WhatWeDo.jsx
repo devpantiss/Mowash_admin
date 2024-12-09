@@ -83,7 +83,7 @@ const WhatWeDo = () => {
   
     return (
       <div className="w-full bg-blue-600 py-16 px-6">
-        <div className="container mx-auto flex flex-col lg:flex-row items-center gap-8">
+        <div className="container mx-auto flex flex-col items-center gap-8">
           {/* Left Section */}
           <div className="text-center lg:text-left lg:w-1/2">
             <h1 className="text-4xl lg:text-6xl font-bold text-white mb-4">
@@ -95,7 +95,7 @@ const WhatWeDo = () => {
           </div>
   
           {/* Right Section */}
-          <div className="lg:w-1/2">
+          <div className="">
             <div className="relative">
               {/* Custom Navigation Buttons */}
               <button
@@ -113,8 +113,8 @@ const WhatWeDo = () => {
   
               <Swiper
                 modules={[Autoplay, Navigation]}
-                slidesPerView={1.5}
-                spaceBetween={15}
+                slidesPerView={4}
+                spaceBetween={25}
                 centeredSlides={true}
                 loop={true}
                 autoplay={{
@@ -132,7 +132,7 @@ const WhatWeDo = () => {
                     swiper.navigation.update();
                   });
                 }}
-                className="mySwiper w-[400px] md:w-[768px] overflow-auto"
+                className="mySwiper w-[400px] md:w-[1008px] overflow-auto"
               >
                 {slides.map((slide) => (
                   <SwiperSlide
@@ -140,7 +140,7 @@ const WhatWeDo = () => {
                     className="flex justify-center items-center"
                   >
                     <div
-                      className="relative h-[600px] w-[300px] lg:w-[500px] bg-cover bg-center rounded-lg shadow-lg"
+                      className="relative h-[600px] w-[300px] bg-cover bg-center rounded-lg shadow-lg"
                       style={{ backgroundImage: `url(${slide.backgroundImage})` }}
                     >
                       {/* Overlay */}
