@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
-        <footer className="bg-black text-white py-8">
+        <footer className="bg-blue-600 text-white py-8">
             <div className="container mx-auto px-4">
                 {/* Main Footer Content */}
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
@@ -38,20 +38,20 @@ const Footer = () => {
                     <div className="mt-5 flex flex-col justify-center items-center">
                         <h3 className="text-lg font-bold mb-4 text-blue-600">Join the conversation</h3>
                         <div className="flex space-x-4 justify-center md:justify-start">
-                            <a to="#" className="text-white text-[18px] bg-blue-600 hover:bg-white hover:text-blue-600 rounded-full p-3">
+                            <a to="#" className="text-[18px] hover:bg-blue-600 hover:ring-2 hover:ring-white bg-white hover:text-white text-blue-600 rounded-full p-3">
                                 <FaFacebookF />
                             </a>
-                            <a to="#" className="text-white text-[18px] bg-blue-600 hover:bg-white hover:text-blue-600 rounded-full p-3">
+                            <a to="#" className="text-[18px] hover:bg-blue-600 hover:ring-2 hover:ring-white bg-white hover:text-white text-blue-600 rounded-full p-3">
                                 <FaTwitter />
                             </a>
-                            <a to="#" className="text-white text-[18px] bg-blue-600 hover:bg-white hover:text-blue-600 rounded-full p-3">
+                            <a to="#" className="text-[18px] hover:bg-blue-600 hover:ring-2 hover:ring-white bg-white hover:text-white text-blue-600 rounded-full p-3">
                                 <FaInstagram />
                             </a>
-                            <a to="#" className="text-white text-[18px] bg-blue-600 hover:bg-white hover:text-blue-600 rounded-full p-3">
+                            <a to="#" className="text-[18px] hover:bg-blue-600 hover:ring-2 hover:ring-white bg-white hover:text-white text-blue-600 rounded-full p-3">
                                 <FaLinkedin />
                             </a>
                         </div>
-                        <button className="bg-blue-600 hover:bg-white hover:text-blue-600 text-white font-semibold px-6 py-2 mt-4 rounded-md">
+                        <button className="hover:bg-blue-600 hover:ring-2 hover:ring-white bg-white text-blue-600 hover:text-white font-semibold px-6 py-2 mt-4 rounded-md">
                             Downloads
                         </button>
                     </div>

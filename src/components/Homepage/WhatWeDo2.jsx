@@ -1,5 +1,4 @@
 import React, { useRef } from "react";
-import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css";
@@ -12,29 +11,40 @@ const slides = [
   {
     id: 1,
     title: "Wash Services",
-    description: "Providing access to safe and clean drinking water.",
+    tags: [
+      {text:"Toilet Masonary"},
+      {text:"Faecal Desludging"},
+      {text:"Plumbing"}
+    ],
     buttons: [
       { text: "MoWash Users", link: "https://mowash.in" },
       { text: "Partners", link: "https://partners.mowash.in" },
     ],
     buttonLink: "https://mowash-services.com", // Link for all slides
     backgroundImage:
-      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1728306740/Screenshot_2024-10-07_at_6.41.27_PM_w5faom.png",
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154553/Screenshot_2024-12-14_at_10.50.28_AM_srv3cm.png",
   },
   {
     id: 2,
     title: "Facility Management",
-    description: "Ensuring proper sanitation facilities for communities.",
+    tags: [
+      {text:"Healthcare"},
+      {text:"Public Transport"},
+      {text:"Residential"}
+    ],
     buttonText: "Explore",
     buttonLink: "https://facility-management-orpin.vercel.app/", // Link for all slides
     backgroundImage:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJmdo4bLCVSthS9IPI8N0DdfN8Jmcyf3p3QQ&s",
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154536/facility_management_glkoj6.jpg",
   },
   {
     id: 3,
     title: "Wash Academy",
-    description:
-      "Educating communities about hygiene and sanitation practices.",
+    tags: [
+      {text:"Nal Jal Mitra"},
+      {text:"Sanitary Crew"},
+      {text:"Septic Tank Technician"}
+    ],
     buttonText: "Explore",
     buttonLink: "https://wash-academy.mowash.com", // Link for all slides
     backgroundImage:
@@ -43,20 +53,67 @@ const slides = [
   {
     id: 4,
     title: "Wash Equipments",
-    description: "Providing high-quality sanitation tools and resources.",
+    tags: [
+      {text:"Job Search"},
+      {text:"Staffing"},
+      {text:"Payrolling"}
+    ],
     buttonText: "Explore",
     buttonLink: "https://wash-equipments.mowash.com", // Link for all slides
     backgroundImage:
-      "https://img1.wsimg.com/isteam/ip/44657f71-b09f-48a5-a6c9-7197c782b6c8/heavy%20equipment%20washing%20-%20dallas%20tx.jpg",
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154537/cesspool_vehicle_bdazz2.webp",
   },
   {
     id: 5,
     title: "Circular Economy",
-    description: "Promoting sustainable practices in waste management.",
+    tags: [
+      {text:"E-Waste"},
+      {text:"Plastic Waste"},
+      {text:"Bio-Medical"}
+    ],
     buttonText: "Explore",
     buttonLink: "https://circular-economy.mowash.com", // Link for all slides
     backgroundImage:
-      "https://synergos.biz/wp-content/uploads/2021/10/synergos1-300x295.png",
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154537/circular_economy_f674vk.jpg",
+  },
+  {
+    id: 6,
+    title: "Work Force",
+    tags: [
+      {text:"Cesspool Vehicle"},
+      {text:"BOV Tricycle"},
+      {text:"Dumpsters"}
+    ],
+    buttonText: "Explore",
+    buttonLink: "https://circular-economy.mowash.com", // Link for all slides
+    backgroundImage:
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154537/workforce_kw2foc.webp",
+  },
+  {
+    id: 7,
+    title: "SHG-SME",
+    tags: [
+      {text:"Innovation"},
+      {text:"Incubation"},
+      {text:"Investment"}
+    ],
+    buttonText: "Explore",
+    buttonLink: "https://circular-economy.mowash.com", // Link for all slides
+    backgroundImage:
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154537/Self-Help-Groups-nxtidea_dmwfqi.jpg",
+  },
+  {
+    id: 8,
+    title: "Construction",
+    tags: [
+      {text:"Canals"},
+      {text:"Check Dams"},
+      {text:"FSTP Plant"}
+    ],
+    buttonText: "Explore",
+    buttonLink: "https://circular-economy.mowash.com", // Link for all slides
+    backgroundImage:
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154536/construction_ygwill.jpg",
   },
 ];
 
@@ -111,8 +168,8 @@ const WhatWeDo2 = () => {
             }}
             className="mySwiper"
             breakpoints={{
-              640: { slidesPerView: 1 }, // 1 card for mobile
-              1024: { slidesPerView: 3 }, // 3 cards for desktop
+              640: { slidesPerView: 1 },
+              1024: { slidesPerView: 3 },
             }}
           >
             {slides.map((slide) => (
@@ -123,10 +180,21 @@ const WhatWeDo2 = () => {
                 >
                   {/* Overlay */}
                   <div className="absolute inset-0 p-4 bg-black bg-opacity-50 rounded-lg flex flex-col justify-center items-center text-center text-white px-4">
-                    <h2 className="text-xl lg:text-2xl font-bold mb-2">
+                    <h2 className="text-xl lg:text-4xl font-bold mb-2">
                       {slide.title}
                     </h2>
-                    <p className="text-sm mb-4">{slide.description}</p>
+
+                    {/* Tags */}
+                    <div className="flex flex-wrap justify-center gap-2 mb-4">
+                      {slide.tags.map((tag, index) => (
+                        <span
+                          key={index}
+                          className="bg-white text-blue-600 text-xs px-3 py-1 rounded-full"
+                        >
+                          {tag.text}
+                        </span>
+                      ))}
+                    </div>
 
                     {/* Buttons */}
                     {slide.buttons ? (

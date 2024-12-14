@@ -26,19 +26,51 @@ const Hero = () => {
       <div className="absolute inset-0 bg-black/40 z-10"></div>
 
       {/* Logo */}
-      <div className="absolute top-6 left-6 z-20">
-        <a
-          href="https://mowash.in"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="MoWash Home"
-        >
-          <img
-            src="https://mowash-service.vercel.app/images/mowash-logo.webp"
-            alt="MoWash Logo"
-            className="lg:w-48 w-36"
-          />
-        </a>
+      <div className="absolute top-0 backdrop-blur-sm left-0 z-20 bg-white/60 w-full p-4">
+        <div className="flex justify-between">
+          <a
+            href="https://mowash.in"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="MoWash Home"
+          >
+            <img
+              src="https://mowash-service.vercel.app/images/mowash-logo.webp"
+              alt="MoWash Logo"
+              className="lg:w-48 w-36"
+            />
+          </a>
+
+          <div className="flex justify-between gap-x-6">
+            <a
+              href="https://mowash.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="MoWash Home"
+            >
+              <p className="text-black">An initiative by</p>
+              <img
+                src="https://pantiss.com/wp-content/uploads/2022/08/logo.png"
+                alt="MoWash Logo"
+                className="w-24"
+              />
+            </a>
+
+            <a
+              href="https://mowash.in"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="MoWash Home"
+            >
+              <p className="text-black">Supported by</p>
+              <img
+                src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726530975/UNICEF-logo_lctnsz.webp"
+                alt="MoWash Logo"
+                className="w-24"
+              />
+            </a>
+          </div>
+        </div>
       </div>
 
       {/* Overlay content */}

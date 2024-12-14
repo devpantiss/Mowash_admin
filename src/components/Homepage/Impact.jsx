@@ -39,42 +39,42 @@ const Impact = () => {
   const statsWithImages = [
     {
       id: 1,
-      value: 52000,
-      label: "Trained and Assisted in Mining Shipping Skills",
+      value: 8000,
+      label: "Trained and Assisted in Wash & Green Skills",
       imageUrl:
         "https://i.postimg.cc/zfDGSS5s/ash-edmonds-0a-WZd-K8n-K2-I-unsplash.jpg", // Replace with actual image path
     },
     {
       id: 2,
-      value: 800,
-      label: "Rehabilitation & Resettlement",
+      value: 70,
+      label: "Tons of Waste Treated",
       imageUrl:
         "https://i.postimg.cc/k4p3SWXv/ash-edmonds-XZ0x-N0hmpi4-unsplash.jpg", // Replace with actual image path
     },
     {
       id: 3,
-      value: 12000,
+      value: 5000,
       label: "Youth connected to a network of WASH & climate change",
       imageUrl:
         "https://i.postimg.cc/7Z9x6G7m/pawel-czerwinski-z7prq6-Bt-PE4-unsplash.jpg", // Replace with actual image path
     },
     {
       id: 4,
-      value: 276,
-      label: "SHG, FPO, Cooperate created on green enterprises",
+      value: 25,
+      label: "SHG, FPO, Cooperative created on Wash & Green Enterprises",
       imageUrl: "https://i.postimg.cc/Pfvr4qs5/pexels-billelmoula-540518.jpg", // Replace with actual image path
     },
     {
       id: 5,
-      value: 686,
-      label: "Industries nano contractor in Mining & Shipping Skills",
+      value: 1500,
+      label: "Twinpit Toilets Constructed",
       imageUrl:
         "https://i.postimg.cc/13rzqYx0/pexels-cmonphotography-1809644.jpg", // Replace with actual image path
     },
     {
       id: 6,
       value: 38,
-      label: "SIA, EIA in Open cost Mines refinery & ports",
+      label: "EV in Wash Manufactured",
       imageUrl:
         "https://i.postimg.cc/kX8Gngfp/pexels-d-ng-nhan-324384-1529881.jpg", // Replace with actual image path
     },
@@ -230,7 +230,7 @@ const Impact = () => {
           {/* View Advanced Dashboard Button */}
           <Link
             to="/dashboard"
-            className="px-4 py-2 rounded-md border border-white bg-blue-600 hover:bg-white text-white hover:text-blue-600 hover:ring-1 hover:ring-blue-600"
+            className="px-4 py-2 rounded-md border border-white bg-blue-600 hover:bg-white text-white hover:text-blue-600 hover:ring-1 hover:ring-blue-600 animate-spin-slow"
           >
             View Advanced Dashboard
           </Link>

@@ -18,10 +18,9 @@ const Summit = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white bg-black bg-opacity-5 p-4">
         <div className="text-center">
           <div className="relative flex flex-col lg:flex-row justify-between items-center gap-x-28 gap-y-6 text-lg sm:text-xl">
-            <div className=" relative flex flex-col items-center">
-              <span className="text-4xl font-bold mb-2 z-50">
-                ODISHA Just Transition Conclave
-                <br />'24
+            <div className=" relative flex flex-col items-center w-full lg:w-1/2">
+              <span className="text-3xl font-bold mb-2 z-50">
+                ODISHA Just Transition Conclave-'24
               </span>
               <p>Talcher</p>
               <img
@@ -39,20 +38,24 @@ const Summit = () => {
 
             <div className="lg:h-[150px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
 
-            <div className="relative flex flex-col items-center">
-              <span className="text-4xl font-bold">
+            <div className="relative flex flex-col items-center w-full lg:w-1/2">
+              <span className="text-3xl font-bold">
                 WASHPRENEUR FELLOWSHIP-'24
               </span>
               <img
                 src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726138831/Screenshot_2024-09-12_162917-removebg-preview_i4rukm.png"
-                className="absolute -top-6 left-14 z-10 lg:-top-6 lg:-left-6 h-12 w-12"
+                className="absolute -top-6 left-14 z-10 lg:-top-6 lg:-left-0 h-12 w-12"
               />
               <div className="flex gap-x-4">
-                <p>Kalahandi</p>
+                <p>T.Rampur</p>
                 <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
-                <p>Bastar</p>
+                <p>Nagada</p>
                 <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
-                <p>Kodarma</p>
+                <p>Mangalajodi</p>
+                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
+                <p>Bagapatia</p>
+                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
+                <p>Koeda</p>
               </div>
             </div>
           </div>
