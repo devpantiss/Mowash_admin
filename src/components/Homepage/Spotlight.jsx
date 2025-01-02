@@ -25,56 +25,59 @@ const Spotlight = () => {
             category: "Events",
             title: "PAGA 1.0",
             description: "PAGA 1.0 2022, organized by PANTISS and UNICEF, focuses on accelerating climate change adaptation through the convergence of Just Transition and Circular Economy.",
-            imageUrl: "https://pantiss.com/wp-content/uploads/2023/07/Untitled-1024-%C3%97-768-px.png", // Replace with the actual image path
+            imageUrl: "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735813266/WhatsApp_Image_2025-01-02_at_3.35.28_PM_oqfhdm.jpg", // Replace with the actual image path
             linkText: "View More",
         },
         {
             category: "Stories",
-            title: "Elevating Mining Expertise: Skill Development in Sukinda-Danagadi Chromite Region, Jajpur District",
-            description: "A review of evidence, bottlenecks and opportunities to meeting sustainable development Goals for mining workers.",
-            imageUrl: "https://pantiss.com/wp-content/uploads/2023/07/WhatsApp-Image-2023-06-28-at-6.48.36-PM.jpeg", // Replace with the actual image path
+            title: "Stepping Forward: Chappal-Making Unit Empowering Communities",
+            description: "Discover the journey of establishing a chappal-making unit under the WASH Enterprise, fostering livelihood opportunities while promoting hygiene and sustainability in rural communities.",
+            imageUrl: "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735813266/WhatsApp_Image_2025-01-02_at_3.45.13_PM_pa9cwy.jpg", // Replace with the actual image path
             linkText: "View More",
         },
         {
             category: "Campaigns",
-            title: "India Book of Record",
-            description: "In a remarkable display of collective hygiene, 5000 youths came together to wash their hands simultaneously on Global Handwashing Day.",
-            imageUrl: "https://pantiss.com/wp-content/uploads/2023/07/Untitled-1024-%C3%97-768-px-1.png", // Replace with the actual image path
+            title: "Youth4Water+: Empowering Odisha’s Water Warriors",
+            description: "Join the Youth4Water+ campaign in Odisha to inspire, engage, and empower young changemakers in addressing water challenges. Together, let’s promote sustainable water practices and create a cleaner, healthier future for all.",
+            imageUrl: "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735813266/WhatsApp_Image_2025-01-02_at_3.07.22_PM_owip2i.jpg", // Replace with the actual image path
             linkText: "View More",
         },
         {
             category: "Podcasts",
-            title: "Youth in action for forest fire in niyamgiri hill",
-            description: "A Story of Hope: Indigenous Communities Leading the Way in Forest Fire Prevention",
-            imageUrl: "https://pantiss.com/wp-content/uploads/2023/07/WhatsApp-Image-2023-06-28-at-5.28.26-PM.jpeg", // Replace with the actual image path
+            title: "UN Career Spotlight: With Anwesha Dutta",
+            description: "Discover the inspiring journey of Anwesha Dutta, WASH Officer at UNICEF, as she shares her experiences, challenges, and insights from her impactful career in the United Nations. Tune in to learn about her role in transforming communities through WASH initiatives and her advice for aspiring change-makers.",
+            imageUrl: "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735813452/WhatsApp_Image_2025-01-02_at_3.08.19_PM_hypjdv.jpg", // Replace with the actual image path
             linkText: "View More",
         },
         {
             category: "News",
-            title: "Youth in action for forest fire in niyamgiri hill",
-            description: "A Story of Hope: Indigenous Communities Leading the Way in Forest Fire Prevention",
-            imageUrl: "https://pantiss.com/wp-content/uploads/2023/07/WhatsApp-Image-2023-06-28-at-5.28.26-PM.jpeg", // Replace with the actual image path
+            title: "Sato Toilets Transform Thuamulrampur: A Step Towards Hygiene and Dignity",
+            description: "Under the MoWash Model Village initiative, the construction of Sato toilets in Thuamulrampur marks a significant stride toward improving sanitation in rural Odisha. This effort aims to enhance hygiene, reduce open defecation, and ensure dignity for the local community.",
+            imageUrl: "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735813266/WhatsApp_Image_2025-01-02_at_3.12.29_PM_tluhtr.jpg", // Replace with the actual image path
             linkText: "View More",
         },
         {
             category: "Reports",
-            title: "Youth in action for forest fire in niyamgiri hill",
-            description: "A Story of Hope: Indigenous Communities Leading the Way in Forest Fire Prevention",
-            imageUrl: "https://pantiss.com/wp-content/uploads/2023/07/WhatsApp-Image-2023-06-28-at-5.28.26-PM.jpeg", // Replace with the actual image path
+            title: "The WASH Guardians: Odisha Report",
+            description: "Explore detailed insights into Odisha's WASH initiatives, highlighting key achievements, challenges, and progress in ensuring clean water, sanitation, and hygiene for communities across the state.",
+            imageUrl: "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735813266/WhatsApp_Image_2025-01-02_at_3.40.14_PM_qj7fgo.jpg", // Replace with the actual image path
             linkText: "View More",
         },
         {
             category: "Awards",
-            title: "PAGA 1.0",
-            description: "PAGA 1.0 2022, organized by PANTISS and UNICEF, focuses on accelerating climate change adaptation through the convergence of Just Transition and Circular Economy.",
-            imageUrl: "https://pantiss.com/wp-content/uploads/2023/07/Untitled-1024-%C3%97-768-px.png", // Replace with the actual image path
+            title:
+              "Listed on India Book of Records for Largest Hand Washing at one Place",
+            description:
+              "Recognized by the India Book of Records for organizing the largest handwashing event at a single location, promoting hygiene awareness and emphasizing the importance of handwashing as a cornerstone of public health",
+            imageUrl:
+              "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735191971/Awards_bbpnu5.jpg",
             linkText: "View More",
-        },
+          },
         {
             category: "Blogs",
-            title: "Elevating Mining Expertise: Skill Development in Sukinda-Danagadi Chromite Region, Jajpur District",
-            description: "A review of evidence, bottlenecks and opportunities to meeting sustainable development Goals for mining workers.",
-            imageUrl: "https://pantiss.com/wp-content/uploads/2023/07/WhatsApp-Image-2023-06-28-at-6.48.36-PM.jpeg", // Replace with the actual image path
+            title: "Safety and Dignity for Safai Karmacharis",
+            description: "Explore stories, initiatives, and insights focused on empowering Safai Karmacharis with safer work environments, proper safety gear, and the dignity they deserve in their essential roles.",
+            imageUrl: "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735813266/WhatsApp_Image_2025-01-02_at_3.42.45_PM_fayqmg.jpg", // Replace with the actual image path
             linkText: "View More",
         },
     ];

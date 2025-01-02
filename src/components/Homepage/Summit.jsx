@@ -40,11 +40,11 @@ const Summit = () => {
 
             <div className="relative flex flex-col items-center w-full lg:w-1/2">
               <span className="text-3xl font-bold">
-                WASHPRENEUR FELLOWSHIP-'24
+                ODISHA WASHPRENEUR FELLOWSHIP-'24
               </span>
               <img
                 src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726138831/Screenshot_2024-09-12_162917-removebg-preview_i4rukm.png"
-                className="absolute -top-6 left-14 z-10 lg:-top-6 lg:-left-0 h-12 w-12"
+                className="absolute -top-6 left-12 z-10 lg:-top-6 lg:-left-4 h-12 w-12"
               />
               <div className="flex gap-x-4">
                 <p>T.Rampur</p>
@@ -55,7 +55,7 @@ const Summit = () => {
                 <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
                 <p>Bagapatia</p>
                 <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
-                <p>Koeda</p>
+                <p>Koida</p>
               </div>
             </div>
           </div>

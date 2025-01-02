@@ -84,15 +84,15 @@ const Hero = () => {
             animation: "shine 3s infinite linear",
           }}
         >
-          Welcome to MoWash
+          Welcome to <br /> MoWash Company
         </h1>
 
         {/* Subheading */}
         <h2 className="lg:text-2xl text-lg mt-6">
           <TypeAnimation
             sequence={[
-              "Your one-stop solution for all WASH-related services",
-              2000,
+              // "Your one-stop solution for all WASH-related services",
+              // 2000,
               "We are the Toilet Directors!",
               2000,
             ]}

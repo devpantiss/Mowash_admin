@@ -26,7 +26,7 @@ const slides = [
   },
   {
     id: 2,
-    title: "Facility Management",
+    title: "Green Facility Management",
     tags: [
       {text:"Healthcare"},
       {text:"Public Transport"},
@@ -39,7 +39,7 @@ const slides = [
   },
   {
     id: 3,
-    title: "Wash Academy",
+    title: "Mo WASH Academy",
     tags: [
       {text:"Nal Jal Mitra"},
       {text:"Sanitary Crew"},
@@ -52,16 +52,16 @@ const slides = [
   },
   {
     id: 4,
-    title: "Wash Equipments",
+    title: "Work Force in WASH",
     tags: [
       {text:"Job Search"},
       {text:"Staffing"},
       {text:"Payrolling"}
     ],
     buttonText: "Explore",
-    buttonLink: "https://wash-equipments.mowash.com", // Link for all slides
+    buttonLink: "https://staffing-xi.vercel.app/", // Link for all slides
     backgroundImage:
-      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154537/cesspool_vehicle_bdazz2.webp",
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154537/workforce_kw2foc.webp",
   },
   {
     id: 5,
@@ -78,20 +78,20 @@ const slides = [
   },
   {
     id: 6,
-    title: "Work Force",
+    title: "WASH Equipments",
     tags: [
       {text:"Cesspool Vehicle"},
       {text:"BOV Tricycle"},
       {text:"Dumpsters"}
     ],
     buttonText: "Explore",
-    buttonLink: "https://circular-economy.mowash.com", // Link for all slides
+    buttonLink: "https://wash-equipments.mowash.com", // Link for all slides
     backgroundImage:
-      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154537/workforce_kw2foc.webp",
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1734154537/cesspool_vehicle_bdazz2.webp",
   },
   {
     id: 7,
-    title: "SHG-SME",
+    title: "WASH SHG-SME",
     tags: [
       {text:"Innovation"},
       {text:"Incubation"},
@@ -104,7 +104,7 @@ const slides = [
   },
   {
     id: 8,
-    title: "Construction",
+    title: "WASH Construction",
     tags: [
       {text:"Canals"},
       {text:"Check Dams"},
@@ -140,13 +140,13 @@ const WhatWeDo2 = () => {
             ref={prevRef}
             className="absolute bg-black/60 left-0 z-10 top-1/2 transform -translate-y-1/2 text-white p-3 rounded-full"
           >
-            <FaChevronLeft className="text-[60px] text-white" />
+            <FaChevronLeft className="text-[30px] lg:text-[60px] text-white" />
           </button>
           <button
             ref={nextRef}
             className="absolute bg-black/60 right-0 z-10 top-1/2 transform -translate-y-1/2 text-white p-3 rounded-full"
           >
-            <FaChevronRight className="text-[60px] text-white" />
+            <FaChevronRight className="text-[30px] lg:text-[60px] text-white"/>
           </button>
 
           <Swiper

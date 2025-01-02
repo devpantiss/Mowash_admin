@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
 import CountUp from "react-countup";
+import Heading from "../../components/common/Heading";
 import { Link } from "react-router-dom";
-import Heading from "../common/Heading";
 
-const Impact = () => {
+const Impact2 = () => {
   const [inView, setInView] = useState(false);
   const sectionRef = useRef(null);
 
@@ -11,7 +11,6 @@ const Impact = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        // Add logs for debugging to check if the observer is triggeblue
         console.log("Observed entry:", entries[0]);
         if (entries[0].isIntersecting) {
           setInView(true);
@@ -20,7 +19,7 @@ const Impact = () => {
         }
       },
       {
-        threshold: 0.1, // Lower threshold for mobile
+        threshold: 0.1,
         rootMargin: "0px 0px -20% 0px", // Trigger earlier when scrolling into view
       }
     );
@@ -39,71 +38,78 @@ const Impact = () => {
   const statsWithImages = [
     {
       id: 1,
-      value: 8000,
+      value: 3000,
       label: "Trained and Assisted in Wash & Green Skills",
-      imageUrl:
-        "https://i.postimg.cc/zfDGSS5s/ash-edmonds-0a-WZd-K8n-K2-I-unsplash.jpg", // Replace with actual image path
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735823819/Sanitation_ssgedy.mp4",
+      unit: "+",
     },
     {
       id: 2,
-      value: 70,
+      value: 80,
       label: "Tons of Waste Treated",
-      imageUrl:
-        "https://i.postimg.cc/k4p3SWXv/ash-edmonds-XZ0x-N0hmpi4-unsplash.jpg", // Replace with actual image path
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735819984/ac_fsd12j.mp4",
+      unit: "+",
     },
     {
       id: 3,
       value: 5000,
       label: "Youth connected to a network of WASH & climate change",
-      imageUrl:
-        "https://i.postimg.cc/7Z9x6G7m/pawel-czerwinski-z7prq6-Bt-PE4-unsplash.jpg", // Replace with actual image path
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735222160/health_1_ko85fg.mp4",
     },
     {
       id: 4,
-      value: 25,
+      value: 16,
       label: "SHG, FPO, Cooperative created on Wash & Green Enterprises",
-      imageUrl: "https://i.postimg.cc/Pfvr4qs5/pexels-billelmoula-540518.jpg", // Replace with actual image path
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735819053/New_02_ebyv2d.mp4",
     },
     {
       id: 5,
       value: 1500,
       label: "Twinpit Toilets Constructed",
-      imageUrl:
-        "https://i.postimg.cc/13rzqYx0/pexels-cmonphotography-1809644.jpg", // Replace with actual image path
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735819460/Twin_Pit_1_ovjl5b.mp4",
     },
     {
       id: 6,
       value: 38,
       label: "EV in Wash Manufactured",
-      imageUrl:
-        "https://i.postimg.cc/kX8Gngfp/pexels-d-ng-nhan-324384-1529881.jpg", // Replace with actual image path
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735820609/EV_u5jgzy.mp4",
+      unit: "+",
     },
     {
       id: 7,
-      value: 26,
-      label: "Abandoned Mines Reclamated",
-      imageUrl:
-        "https://i.postimg.cc/G28rqXf5/pexels-francesco-ungaro-998641.jpg", // Replace with actual image path
+      value: 200,
+      label: "Portable Water Supply",
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735821550/Water_Tanker_gdsgoe.mp4",
     },
     {
       id: 8,
-      value: 43,
+      value: 12,
       label: "Lost Water Body Rejuvenated",
-      imageUrl: "https://i.postimg.cc/brnyNmHt/pexels-luis-ruiz-991422.jpg", // Replace with actual image path
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735222753/reclamation_ux6few.mp4",
     },
     {
       id: 9,
-      value: 8000,
-      label: "Portable Water Supply",
-      imageUrl:
-        "https://i.postimg.cc/J4brfdhw/pexels-seatizen-co-170969-557782.jpg", // Replace with actual image path
+      value: 200,
+      label: "FSTP Waste Treated",
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735822175/fstp_njjsbe.mp4",
+      unit: "Tonnes",
     },
     {
       id: 10,
-      value: 48,
-      label: "Aquaculture Sites created in Mining periphery",
-      imageUrl:
-        "https://i.postimg.cc/J4brfdhw/pexels-seatizen-co-170969-557782.jpg", // Replace with actual image path
+      value: 43,
+      label: "Aquaculture Sites created",
+      videoUrl:
+        "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735818849/Fish_01_ogvue4.mp4",
+      // videoUrl: "https://res.cloudinary.com/dgtc2fvgu/video/upload/v1735282584/waterbody.44_afurrs.mp4",
     },
   ];
 
@@ -114,21 +120,17 @@ const Impact = () => {
   const renderStatCard = (stat, index, isEvenRow) => {
     return isEvenRow ? (
       <div key={index}>
-        <div className="flex flex-col md:flex-row-reverse items-center text-blue-600 bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-white border hover:border hover:border-white hover:bg-blue-600 group2">
+        <div className="flex flex-col md:flex-row ring-2 ring-white items-center bg-blue-600 text-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-[1.02] hover:bg-white hover:border hover:border-blue-600 hover:text-blue-600 group2">
           {/* Video instead of background image */}
-          {/* <div className="h-44 w-full md:w-1/2">
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-            >
-              <source src="https://res.cloudinary.com/du3i8e0se/video/upload/v1725774824/New_Project_-_Made_with_Clipchamp_kmplxn.mp4" type="video/mp4" />
+          <div className="h-44 w-full md:w-1/2">
+            <video className="h-full w-full object-cover" autoPlay muted loop>
+              <source src={stat.videoUrl} type="video/mp4" />
+              {/* Fallback if video format isn't supported */}
               Your browser does not support the video tag.
             </video>
-          </div> */}
+          </div>
 
-          <div className="p-4 text-center w-full">
+          <div className="p-4 text-center w-full md:w-1/2">
             {inView ? (
               <CountUp
                 start={0}
@@ -139,9 +141,14 @@ const Impact = () => {
             ) : (
               <span className="text-4xl font-bold">0</span>
             )}
-            {shouldHavePlus(stat.id) && (
+            {/* {shouldHavePlus(stat.id) && (
               <span className="text-4xl font-bold outline-text group-hover:outline-text-hover">
                 +
+              </span>
+            )} */}
+            {stat.unit && (
+              <span className="text-4xl font-bold outline-text group-hover:outline-text-hover">
+                {` ${stat.unit}`}
               </span>
             )}
             <p className="text-md mt-2">{stat.label}</p>
@@ -150,21 +157,17 @@ const Impact = () => {
       </div>
     ) : (
       <div key={index}>
-        <div className="flex flex-col md:flex-row-reverse items-center text-blue-600 bg-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:text-white hover:border hover:border-white hover:bg-blue-600 group2">
+        <div className="flex flex-col md:flex-row-reverse ring-2 ring-white items-center bg-blue-600 text-white rounded-lg shadow-lg overflow-hidden transition-all duration-300 ease-in-out transform hover:scale-105 hover:bg-white hover:border hover:border-blue-600 hover:text-blue-600 group2">
           {/* Video instead of background image */}
-          {/* <div className="h-40 w-full md:w-1/2">
-            <video
-              className="h-full w-full object-cover"
-              autoPlay
-              muted
-              loop
-            >
-              <source src="https://res.cloudinary.com/du3i8e0se/video/upload/v1725774824/New_Project_-_Made_with_Clipchamp_kmplxn.mp4" type="video/mp4" />
+          <div className="h-40 w-full md:w-1/2">
+            <video className="h-full w-full object-cover" autoPlay muted loop>
+              <source src={stat.videoUrl} type="video/mp4" />
+              {/* Fallback if video format isn't supported */}
               Your browser does not support the video tag.
             </video>
-          </div> */}
+          </div>
 
-          <div className="p-4 text-center w-full">
+          <div className="p-4 text-center w-full md:w-1/2">
             {inView ? (
               <CountUp
                 start={0}
@@ -175,9 +178,14 @@ const Impact = () => {
             ) : (
               <span className="text-4xl font-bold">0</span>
             )}
-            {shouldHavePlus(stat.id) && (
+            {/* {shouldHavePlus(stat.id) && (
               <span className="text-4xl font-bold outline-text group-hover2:outline-text-hover">
                 +
+              </span>
+            )} */}
+            {stat.unit && (
+              <span className="text-4xl font-bold outline-text group-hover2:outline-text-hover">
+                {` ${stat.unit}`}
               </span>
             )}
             <p className="text-md mt-2">{stat.label}</p>
@@ -218,27 +226,26 @@ const Impact = () => {
         className="py-10 container mx-auto items-center"
       >
         <Heading text="OUR IMPACT" color="text-white" bgColor="bg-white" />
-
         <div className="container mx-auto">{renderGrid()}</div>
         {/* Section with GIF and Button */}
         <div className="flex items-center justify-center mt-6 space-x-4">
           <img
-            src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1733733378/OrgCoral_Ofc-01_Concept-06-removebg-preview_w5rfsj.png"
+            src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726054316/Web_designer_with_idea_frjboi.gif"
             alt="Advanced Dashboard GIF"
-            className="w-48 h-40 lg:block hidden"
+            className="w-80 h-80 lg:block hidden"
           />
           {/* View Advanced Dashboard Button */}
           <Link
-            to="/dashboard"
-            className="px-4 py-2 rounded-md border border-white bg-blue-600 hover:bg-white text-white hover:text-blue-600 hover:ring-1 hover:ring-blue-600 animate-spin-slow"
+            to="https://mowash-admin.vercel.app/"
+            className="px-4 py-2 rounded-md ring-2 ring-white bg-blue-600 hover:bg-white text-white hover:text-blue-600 hover:ring-1 hover:ring-blue-600"
           >
             View Advanced Dashboard
           </Link>
           {/* GIF */}
           <img
-            src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1733733378/OrgCoral_Ofc-01_Concept-06-removebg-preview_w5rfsj.png"
+            src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726054125/Web_Design_Layout_traglx.gif"
             alt="Advanced Dashboard GIF"
-            className="w-48 h-40 lg:block hidden"
+            className="w-80 h-80 lg:block hidden"
           />
         </div>
       </section>
@@ -246,4 +253,4 @@ const Impact = () => {
   );
 };
 
-export default Impact;
+export default Impact2;

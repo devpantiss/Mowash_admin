@@ -25,13 +25,14 @@ const HomePage = () => {
       <WhyToBeBanner />
 
       {/* <ServiceSection /> */}
-      <Summit />
-      <AsSeenOn />
 
       {/* <OurPartners /> */}
       <Spotlight />
+      <Summit />
+
       <Partners />
       <ReachSection />
+      <AsSeenOn />
       <Footer />
     </div>
   );
