@@ -41,9 +41,9 @@ const Hero = () => {
             />
           </a>
 
-          <div className="flex justify-between gap-x-6">
+          <div className="flex justify-between gap-x-6 lg:gap-x-20">
             <a
-              href="https://mowash.in"
+              href="https://www.unicef.org"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="MoWash Home"
@@ -52,12 +52,12 @@ const Hero = () => {
               <img
                 src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1727680521/pantiss_logo_kuiof0.png"
                 alt="MoWash Logo"
-                className="w-24"
+                className="w-24 lg:w-[140px]"
               />
             </a>
 
             <a
-              href="https://mowash.in"
+              href="https://pantiss.com"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="MoWash Home"
@@ -66,7 +66,7 @@ const Hero = () => {
               <img
                 src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726530975/UNICEF-logo_lctnsz.webp"
                 alt="MoWash Logo"
-                className="w-24"
+                className="w-24 lg:w-[140px]"
               />
             </a>
           </div>
