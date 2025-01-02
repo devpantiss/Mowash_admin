@@ -25,7 +25,7 @@ const Summit = () => {
               <p>Talcher</p>
               <img
                 src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726143053/Screenshot_2024-09-12_174007-removebg-preview_d7s8vj.png"
-                className="absolute -top-5 -left-[50px] z-10 lg:-top-6 lg:left-1 h-20 w-40"
+                className="absolute -top-5 -left-[0px] z-10 lg:-top-6 lg:left-1 h-20 w-40"
               />
               <p className="text-[14px] leading-1 lg:w-[500px] text-center">
                 We focuse on sustainable development and empowering professionals associated with the wash ssector.
@@ -44,17 +44,17 @@ const Summit = () => {
               </span>
               <img
                 src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726138831/Screenshot_2024-09-12_162917-removebg-preview_i4rukm.png"
-                className="absolute -top-6 left-12 z-10 lg:-top-6 lg:-left-4 h-12 w-12"
+                className="absolute -top-6 left-0 z-10 lg:-top-6 lg:-left-4 h-12 w-12"
               />
-              <div className="flex gap-x-4">
+              <div className="grid mt-5 lg:grid-cols-5 grid-cols-3 gap-x-4">
                 <p>T.Rampur</p>
-                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
+                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 lg:bg-white opacity-70"></div>
                 <p>Nagada</p>
-                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
+                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 lg:bg-white opacity-70"></div>
                 <p>Mangalajodi</p>
-                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
+                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 lg:bg-white opacity-70"></div>
                 <p>Bagapatia</p>
-                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 bg-white opacity-70"></div>
+                <div className="lg:h-[30px] lg:w-[2px] lg:rotate-0 rotate-90 lg:bg-white opacity-70"></div>
                 <p>Koida</p>
               </div>
             </div>
