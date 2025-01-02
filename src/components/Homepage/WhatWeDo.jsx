@@ -13,7 +13,7 @@ const slides = [
     title: "Wash Services",
     description: "Providing access to safe and clean drinking water.",
     buttons: [
-      { text: "MoWash Users", link: "https://mowash.in" },
+      { text: "MoWash Users", link: "https://users.mowash.in" },
       { text: "Partners", link: "https://partners.mowash.in" },
     ],
     buttonLink: "https://mowash-services.com", // Link for all slides
