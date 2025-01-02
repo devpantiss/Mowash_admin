@@ -50,7 +50,7 @@ const Hero = () => {
             >
               <p className="text-black">An initiative by</p>
               <img
-                src="https://pantiss.com/wp-content/uploads/2022/08/logo.png"
+                src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1727680521/pantiss_logo_kuiof0.png"
                 alt="MoWash Logo"
                 className="w-24"
               />
