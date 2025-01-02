@@ -236,7 +236,7 @@ const Impact2 = () => {
           />
           {/* View Advanced Dashboard Button */}
           <Link
-            to="https://mowash-admin.vercel.app/"
+            to="/dashboard"
             className="px-4 py-2 rounded-md ring-2 ring-white bg-blue-600 hover:bg-white text-white hover:text-blue-600 hover:ring-1 hover:ring-blue-600"
           >
             View Advanced Dashboard
