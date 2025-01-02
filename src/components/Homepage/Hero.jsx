@@ -27,7 +27,7 @@ const Hero = () => {
 
       {/* Logo */}
       <div className="absolute top-0 backdrop-blur-sm left-0 z-20 bg-white/60 w-full p-4">
-        <div className="flex justify-between">
+        <div className="flex lg:flex-row gap-y-4 flex-col justify-between">
           <a
             href="https://mowash.in"
             target="_blank"
