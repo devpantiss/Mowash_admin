@@ -48,7 +48,7 @@ const slides = [
     buttonText: "Explore",
     buttonLink: "https://wash-academy.mowash.com", // Link for all slides
     backgroundImage:
-      "https://phia.org.in/wp-content/uploads/2021/04/GHWD2019.jpg",
+      "https://res.cloudinary.com/dgtc2fvgu/image/upload/v1735915960/WhatsApp_Image_2025-01-03_at_7.09.25_PM_1_pmya7b.jpg",
   },
   {
     id: 4,
