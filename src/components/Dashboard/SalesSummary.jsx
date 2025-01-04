@@ -69,7 +69,7 @@ const ClaimSummaryTable = () => {
               <thead>
                 <tr className="bg-green-800 text-left">
                   <th className="p-2">District</th>
-                  <th className="p-2">No. of Orders</th>
+                  <th className="p-2">Revenue</th>
                   <th className="p-2">Monthly Trend</th>
                 </tr>
               </thead>
