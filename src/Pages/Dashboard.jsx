@@ -7,7 +7,7 @@ import WorkCards from "../components/Dashboard/WorkCards";
 import SalesSummary from "../components/Dashboard/SalesSummary";
 import QuickLinks from "../components/Dashboard/QuickLinks";
 import UsersMap from "../components/Dashboard/UsersMap";
-import WorkRow from "../components/Dashboard/WorkRow";
+// import WorkRow from "../components/Dashboard/WorkRow";
 import Row2 from "../components/Dashboard/Row2";
 const Dashboard = () => {
   return (
@@ -19,7 +19,7 @@ const Dashboard = () => {
       <UsersMap />
       <WorkCards />
       <WorksDoneMap />
-      <Row2 />
+      {/* <Row2 /> */}
       <SalesSummary />
       <QuickLinks />
     </div>

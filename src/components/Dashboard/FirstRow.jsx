@@ -11,47 +11,49 @@ import {
 
 // Sample data for the bar graph (Revenue over the last 12 months)
 const data = [
-  { month: "J", revenue: 150 },
-  { month: "F", revenue: 180 },
-  { month: "M", revenue: 200 },
-  { month: "A", revenue: 220 },
-  { month: "M", revenue: 270 },
-  { month: "J", revenue: 300 },
-  { month: "J", revenue: 350 },
-  { month: "A", revenue: 320 },
-  { month: "S", revenue: 290 },
-  { month: "O", revenue: 310 },
-  { month: "N", revenue: 240 },
-  { month: "D", revenue: 190 },
+  { month: "J", revenue: 100000.00 },
+  { month: "F", revenue: 120000.00 },
+  { month: "M", revenue: 133333.33 },
+  { month: "A", revenue: 146666.67 },
+  { month: "M", revenue: 180000.00 },
+  { month: "J", revenue: 200000.00 },
+  { month: "J", revenue: 233333.33 },
+  { month: "A", revenue: 213333.33 },
+  { month: "S", revenue: 193333.33 },
+  { month: "O", revenue: 206666.67 },
+  { month: "N", revenue: 160000.00 },
+  { month: "D", revenue: 126666.67 },
 ];
+
+
 
 const cardData = [
   {
     title: "Total MoWash Engineers",
-    value: "4.79 Cr.",
+    value: "657",
     subText: "Total Households Benefitted",
-    subValue: "119.5 Lakhs",
+    subValue: "650",
     backgroundColor: "bg-blue-900",
   },
   {
     title: "Total MoWash Users",
-    value: "3.56 Cr.",
+    value: "813",
     subText: "Households Covered",
-    subValue: "99.09 Lakhs (83%)",
+    subValue: "800",
     backgroundColor: "bg-blue-800",
   },
   {
     title: "Total Jobs Executed",
-    value: "4.11 Cr.",
+    value: "3500",
     subText: "Govt.",
-    subValue: "3.98 Cr.",
+    subValue: "0",
     additionalText: "Private",
-    additionalValue: "13,14,041",
+    additionalValue: "3500",
     backgroundColor: "bg-blue-600",
   },
   {
     title: "Total Revenue Generated",
-    value: "₹ 2767.51 Cr.",
+    value: "₹ 11,00,000",
     chart: true,
     backgroundColor: "bg-blue-500",
   },
@@ -61,14 +63,14 @@ const CustomTooltip = ({ active, payload }) => {
   if (active && payload && payload.length) {
     return (
       <div className="bg-white text-black p-2 rounded shadow-lg">
-        <p>{`₹ ${payload[0].value.toFixed(2)} Cr.`}</p>
+        <p>{`₹ ${payload[0].value.toFixed(2)}`}</p>
       </div>
     );
   }
   return null;
 };
 
-const yAxisTickFormatter = (value) => `${value} Cr.`;
+const yAxisTickFormatter = (value) => `${value}`;
 
 const FirstRow = () => {
   return (

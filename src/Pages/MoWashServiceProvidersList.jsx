@@ -1,18 +1,58 @@
 import React, { useState, useEffect } from "react";
 
-// Mock data function to simulate fetching service provider details
+// Mock data function to simulate fetching realistic service provider details
 const fetchServiceProviders = () => {
-    return Array.from({ length: 100 }, (_, index) => ({
-        id: index + 1,
-        district: `District ${index % 10}`,
-        block: `Block ${index % 5}`,
-        providerName: `Service Provider ${index + 1}`,
-        serviceType: `Service Type ${index % 3}`,
-        address: `Street ${index + 1}, Area ${index % 20}`,
-        onboardedDate: `2024-01-${String((index % 30) + 1).padStart(2, '0')}`,
-        contactPerson: `Person ${index + 1}`,
-        contactNumber: `987654${1000 + index}`,
-    }));
+    const districts = [
+        "Angul", "Cuttack", "Bhadrak", "Jajapur", "Jharsuguda",
+        "Kalahandi", "Kandhamal", "Koraput", "Nuapada", "Sundergarh"
+    ];
+    const blocks = [
+        "Chhatrapur", "Niali", "Balianta", "Pipili", "Nimapara",
+        "Tangi", "Jaleswar", "Jujumura", "Attabira", "Sohela"
+    ];
+    const serviceTypes = [
+        "Electrician", "Plumber", "Mason", "Sanitary Worker",
+        "Water Supply Engineer", "Solar Technician"
+    ];
+    const streetNames = [
+        "Rajpath", "Kalpana Square", "Janpath", "Chandni Chowk", "Raja Road",
+        "Lingaraj Road", "Market Street", "Kharavel Nagar", "Ring Road", "Subhash Marg"
+    ];
+    const areas = [
+        "Old Town", "Civil Lines", "Industrial Estate", "Shanti Nagar", "Krishna Vihar",
+        "Ashok Nagar", "Chandrasekharpur", "Khandagiri", "Saheed Nagar", "Jaydev Vihar"
+    ];
+    const names = [
+        "Anil Kumar", "Suman Singh", "Deepak Reddy", "Priya Sharma", "Ravi Patnaik",
+        "Arjun Das", "Neha Jaiswal", "Sunita Mohanty", "Amit Mishra", "Rohit Panda",
+        "Sanjay Behera", "Sneha Sahu", "Rajeev Swain", "Alok Mahapatra", "Kajal Nayak"
+    ];
+    const designations = [
+        "Field Technician", "Supervisor", "Worker", "Engineer", "Helper"
+    ];
+
+    return Array.from({ length: 100 }, (_, index) => {
+        const district = districts[index % districts.length];
+        const block = blocks[index % blocks.length];
+        const serviceType = serviceTypes[index % serviceTypes.length];
+        const street = streetNames[index % streetNames.length];
+        const area = areas[index % areas.length];
+        const onboardedDay = String((index % 28) + 1).padStart(2, '0');
+        const providerName = names[index % names.length];
+        const designation = designations[index % designations.length];
+
+        return {
+            id: index + 1,
+            district,
+            block,
+            providerName: `${providerName} (${designation})`,
+            serviceType,
+            address: `${street}, ${area}`,
+            onboardedDate: `2024-01-${onboardedDay}`,
+            contactPerson: `${providerName}`,
+            contactNumber: `98765${String(1000 + index).slice(-4)}`,
+        };
+    });
 };
 
 const MoWashServiceProvidersList = () => {
@@ -66,7 +106,6 @@ const MoWashServiceProvidersList = () => {
                         onChange={(e) => setDistrictFilter(e.target.value)}
                     >
                         <option value="">Select District</option>
-                        {/* Add unique districts */}
                         {Array.from(new Set(data.map(item => item.district))).map((district, idx) => (
                             <option key={idx} value={district}>{district}</option>
                         ))}
@@ -77,7 +116,6 @@ const MoWashServiceProvidersList = () => {
                         onChange={(e) => setBlockFilter(e.target.value)}
                     >
                         <option value="">Select Block</option>
-                        {/* Add unique blocks */}
                         {Array.from(new Set(data.map(item => item.block))).map((block, idx) => (
                             <option key={idx} value={block}>{block}</option>
                         ))}

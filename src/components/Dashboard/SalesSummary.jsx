@@ -11,37 +11,19 @@ const generateTrendData = () => {
 
 // District data
 const districtData = [
-  { district: 'Angul', claims: 63771, change: 2671, trend: generateTrendData() },
-  { district: 'Balasore', claims: 104935, change: -3421, trend: generateTrendData() },
-  { district: 'Bargarh', claims: 60855, change: 2444, trend: generateTrendData() },
-  { district: 'Bhadrak', claims: 84390, change: 2418, trend: generateTrendData() },
-  { district: 'Bolangir', claims: 34607, change: 1349, trend: generateTrendData() },
-  { district: 'Boudh', claims: 0, change: 0, trend: generateTrendData() },
-  { district: 'Cuttack', claims: 59261, change: 24855, trend: generateTrendData() },
-  { district: 'Deogarh', claims: 7122, change: -562, trend: generateTrendData() },
-  { district: 'Dhenkanal', claims: 96147, change: 1943, trend: generateTrendData() },
-  { district: 'Gajapati', claims: 2483, change: 32, trend: generateTrendData() },
-  { district: 'Ganjam', claims: 173645, change: -5819, trend: generateTrendData() },
-  { district: 'Jagatsinghpur', claims: 33361, change: 1136, trend: generateTrendData() },
-  { district: 'Jajpur', claims: 143522, change: -5077, trend: generateTrendData() },
-  { district: 'Jharsuguda', claims: 3575, change: 257, trend: generateTrendData() },
-  { district: 'Kalahandi', claims: 36706, change: -1590, trend: generateTrendData() },
-  { district: 'Kandhamal', claims: 6285, change: 0, trend: generateTrendData() },
-  { district: 'Kendrapara', claims: 40602, change: 112, trend: generateTrendData() },
-  { district: 'Keonjhar', claims: 19872, change: -1390, trend: generateTrendData() },
-  { district: 'Khorda', claims: 1258979, change: 56779, trend: generateTrendData() },
-  { district: 'Koraput', claims: 5874, change: 184, trend: generateTrendData() },
-  { district: 'Malkangiri', claims: 0, change: 0, trend: generateTrendData() },
-  { district: 'Mayurbhanj', claims: 49096, change: 1834, trend: generateTrendData() },
-  { district: 'Nabarangpur', claims: 9283, change: 192, trend: generateTrendData() },
-  { district: 'Nayagarh', claims: 28749, change: 1065, trend: generateTrendData() },
-  { district: 'Nuapada', claims: 7320, change: 351, trend: generateTrendData() },
-  { district: 'Puri', claims: 44032, change: -1000, trend: generateTrendData() },
-  { district: 'Rayagada', claims: 7850, change: 390, trend: generateTrendData() },
-  { district: 'Sambalpur', claims: 69952, change: -1309, trend: generateTrendData() },
-  { district: 'Subarnapur', claims: 119069, change: 5713, trend: generateTrendData() },
-  { district: 'Sundargarh', claims: 85832, change: 3336, trend: generateTrendData() },
+  { district: 'Angul', claims: 97423, change: 4082, trend: generateTrendData() },
+  { district: 'Bhadrak', claims: 128921, change: 3692, trend: generateTrendData() },
+  { district: 'Ganjam', claims: 265179, change: -8887, trend: generateTrendData() },
+  { district: 'Jajpur', claims: 219192, change: -7756, trend: generateTrendData() },
+  { district: 'Jharsuguda', claims: 5455, change: 392, trend: generateTrendData() },
+  { district: 'Kalahandi', claims: 55980, change: -2424, trend: generateTrendData() },
+  { district: 'Kandhamal', claims: 9570, change: 0, trend: generateTrendData() },
+  { district: 'Koraput', claims: 8937, change: 279, trend: generateTrendData() },
+  { district: 'Nuapada', claims: 11137, change: 534, trend: generateTrendData() },
+  { district: 'Rayagada', claims: 11942, change: 593, trend: generateTrendData() },
+  { district: 'Sundargarh', claims: 130264, change: 5065, trend: generateTrendData() },
 ];
+
 
 const DistrictRow = ({ district, claims, change, trend }) => {
   const changeDirection = change > 0 ? '↑' : '↓';
@@ -70,15 +52,15 @@ const DistrictRow = ({ district, claims, change, trend }) => {
 
 const ClaimSummaryTable = () => {
   const tableColumns = [
-    districtData.slice(0, 10),
-    districtData.slice(10, 20),
-    districtData.slice(20, 30),
+    districtData.slice(0, 4),
+    districtData.slice(4, 8),
+    districtData.slice(8, 11),
   ];
 
   return (
     <div className="p-8 bg-transparent mt-4 ring-2 ring-gray-700 rounded-md text-white">
       <h1 className="text-3xl font-bold mb-4 border-b-2 border-gray-600">
-        District-Wise Revenue <span className="text-orange-400">31,96,445</span>
+        District-Wise Revenue <span className="text-orange-400">11,00,000</span>
       </h1>
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-y-4 lg:gap-x-4">
         {tableColumns.map((column, index) => (
