@@ -15,7 +15,7 @@ const Layout = () => {
         <Navbar />
 
         {/* Main content area where routed content will be rendered */}
-        <main className="flex-grow p-4 overflow-auto bg-[#01012c]">
+        <main className="flex-grow p-4 overflow-auto bg-teal-950">
           <Outlet />{" "}
           {/* This is where the content of the selected page will be rendered */}
         </main>

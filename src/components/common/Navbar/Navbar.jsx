@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Tagline from "../Tagline";
 import { IoLocationOutline } from "react-icons/io5";
 
 const Navbar = () => {
@@ -14,18 +13,38 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-blue-900 border-l-2 border-white text-white p-4 flex justify-between sticky w-full z-10">
-      <Tagline />
-      <div className="flex items-center">
+    <div className="bg-black border-l-2 border-white text-white p-4 flex justify-between items-center sticky top-0 w-full z-10">
+      {/* Empty left side to allow logos to shift right */}
+      <div></div>
+
+      {/* Right side: Logos and Dropdown */}
+      <div className="flex items-center space-x-4 ml-auto">
+        {/* Three Logos */}
+        <img
+          src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1750766457/nitcon-removebg-preview_2_oolaqh.png"
+          alt="Logo 1"
+          className="h-12 w-auto"
+        />
+        <img
+          src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1750766457/govt-removebg-preview_dnrqbm.png"
+          alt="Logo 2"
+          className="h-12 w-auto"
+        />
+        <img
+          src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1750766473/dmft_pzaunp.png"
+          alt="Logo 3"
+          className="h-16 w-auto"
+        />
+
         {/* Dropdown for "Find nearest MoWash onboarding center" */}
         <div className="relative">
-          <button
+          {/* <button
             onClick={toggleDropdown}
-            className="mr-4 text-white rounded inline-flex items-center"
+            className="text-white rounded inline-flex items-center"
           >
             <div>
               <p className="inline-flex items-center text-[12px]">
-                <IoLocationOutline className="text-[18px]" />
+                <IoLocationOutline className="text-[18px] mr-1" />
                 Find Your Nearest
                 <svg
                   className={`w-4 h-4 ml-2 transition-transform duration-300 ${
@@ -44,13 +63,12 @@ const Navbar = () => {
                   />
                 </svg>
               </p>
-              <br />
-              <p className="">MoWash Onboarding Center</p>
+              <p className="text-[12px]">MoWash Onboarding Center</p>
             </div>
-          </button>
+          </button> */}
 
           {/* Dropdown menu */}
-          {isDropdownOpen && (
+          {/* {isDropdownOpen && (
             <ul className="absolute right-0 mt-2 w-56 bg-[#01012c] text-white ring-white ring-1 rounded-md shadow-lg z-20">
               {[
                 "Bhubaneswar",
@@ -70,7 +88,7 @@ const Navbar = () => {
                 </li>
               ))}
             </ul>
-          )}
+          )} */}
         </div>
       </div>
     </div>

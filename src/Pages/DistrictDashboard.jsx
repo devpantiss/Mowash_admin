@@ -1,200 +1,168 @@
 import React, { useState } from "react";
-
-const districtsData = [
-  {
-    name: "ANGUL",
-    jobsCompleted: "350",
-    totalRevenue: "250,000",
-    totalWorkers: "200",
-    totalIncome: "250,000",
-  },
-  {
-    name: "BHADRAK",
-    jobsCompleted: "300",
-    totalRevenue: "200,000",
-    totalWorkers: "150",
-    totalIncome: "200,000",
-  },
-  {
-    name: "GANJAM",
-    jobsCompleted: "450",
-    totalRevenue: "300,000",
-    totalWorkers: "225",
-    totalIncome: "275,000",
-  },
-  {
-    name: "JAJPUR",
-    jobsCompleted: "325",
-    totalRevenue: "225,000",
-    totalWorkers: "176",
-    totalIncome: "200,000",
-  },
-  {
-    name: "JHARSUGUDA",
-    jobsCompleted: "250",
-    totalRevenue: "175,000",
-    totalWorkers: "126",
-    totalIncome: "150,000",
-  },
-  {
-    name: "KALAHANDI",
-    jobsCompleted: "275",
-    totalRevenue: "200,000",
-    totalWorkers: "150",
-    totalIncome: "175,000",
-  },
-  {
-    name: "KANDHAMAL",
-    jobsCompleted: "200",
-    totalRevenue: "125,000",
-    totalWorkers: "100",
-    totalIncome: "125,000",
-  },
-  {
-    name: "KORAPUT",
-    jobsCompleted: "225",
-    totalRevenue: "150,000",
-    totalWorkers: "125",
-    totalIncome: "150,000",
-  },
-  {
-    name: "MALKANGIRI",
-    jobsCompleted: "150",
-    totalRevenue: "100,000",
-    totalWorkers: "75",
-    totalIncome: "100,000",
-  },
-  {
-    name: "NAYAGARH",
-    jobsCompleted: "275",
-    totalRevenue: "175,000",
-    totalWorkers: "125",
-    totalIncome: "150,000",
-  },
-  {
-    name: "NUAPADA",
-    jobsCompleted: "100",
-    totalRevenue: "75,000",
-    totalWorkers: "50",
-    totalIncome: "75,000",
-  },
-  {
-    name: "RAYAGADA",
-    jobsCompleted: "200",
-    totalRevenue: "125,000",
-    totalWorkers: "100",
-    totalIncome: "125,000",
-  },
-  {
-    name: "SAMBALPUR",
-    jobsCompleted: "350",
-    totalRevenue: "225,000",
-    totalWorkers: "176",
-    totalIncome: "200,000",
-  },
-  {
-    name: "SUNDARGARH",
-    jobsCompleted: "350",
-    totalRevenue: "250,000",
-    totalWorkers: "200",
-    totalIncome: "250,000",
-  },
-];
+import { useNavigate } from "react-router-dom"; // Import useNavigate
+import villageSurveyData from "../villageSurveyData";
 
 const DistrictDashboard = () => {
-  const [activeTab, setActiveTab] = useState("jobs"); // State to track active tab
+  const [activeTab, setActiveTab] = useState("all");
+  const navigate = useNavigate(); // Initialize navigate
 
-  // Helper function to calculate total for jobs/revenue or workers/income
-  const calculateTotal = (key) => {
-    return districtsData.reduce((total, district) => {
-      const value = parseFloat(district[key].replace(/[^\d.]/g, ""));
-      return total + value;
-    }, 0);
-  };
+  // Calculate totals from villageSurveyData
+  const totalHouseholds = villageSurveyData.reduce(
+    (sum, village) => sum + village.TotalHouseHoldsSurveyed,
+    0
+  );
+  const totalPopulation = villageSurveyData.reduce(
+    (sum, village) => sum + village.TotalPopulationSurveyed,
+    0
+  );
 
-  const totalJobs = calculateTotal("jobsCompleted").toFixed(2) + "";
-  const totalRevenue = calculateTotal("totalRevenue").toFixed(2) + "";
-  const totalWorkers = calculateTotal("totalWorkers").toFixed(2) + "";
-  const totalIncome = calculateTotal("totalIncome").toFixed(2) + "";
+  // Filter data based on active tab
+  const filteredData =
+    activeTab === "all"
+      ? villageSurveyData
+      : villageSurveyData.filter((village) => village.Block === activeTab);
 
   return (
-    <div className="p-8 bg-transparent text-white min-h-screen">
-      <div className="text-2xl font-bold mb-4 flex justify-between">
-        <span>Districts of Odisha</span>
-        {/* Display total count on the top-right */}
-        {activeTab === "jobs" ? (
-          <div className="text-right">
-            <p className="text-5xl font-extrabold">{totalJobs}</p>
-            <p className="text-sm">Total Jobs Completed</p>
-            <p className="text-5xl font-extrabold mt-2">{totalRevenue}</p>
-            <p className="text-sm">Total Revenue (₹)</p>
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white p-4 md:p-6 lg:p-8 font-sans antialiased">
+      <div className="max-w-7xl mx-auto">
+        {/* Header with Futuristic Title and Stats */}
+        <header className="mb-8 relative">
+          <h1 className="text-4xl md:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-purple-600 animate-pulse">
+            Village Data Hub
+          </h1>
+          <div className="absolute -top-4 -right-4 w-48 h-48 bg-teal-500/20 rounded-full filter blur-2xl opacity-50 animate-blob"></div>
+          <div className="bg-gray-900/80 backdrop-blur-md border border-teal-200 p-6 rounded-xl shadow-lg mt-4">
+            <div className="flex justify-between items-center">
+              <div>
+                <p className="text-sm text-teal-300">Total Households</p>
+                <p className="text-3xl font-bold text-cyan-400">
+                  {totalHouseholds}
+                </p>
+              </div>
+              <div>
+                <p className="text-sm text-teal-300">Total Population</p>
+                <p className="text-3xl font-bold text-cyan-400">
+                  {totalPopulation}
+                </p>
+              </div>
+            </div>
           </div>
-        ) : (
-          <div className="text-right">
-            <p className="text-5xl font-extrabold">{totalWorkers}</p>
-            <p className="text-sm">Total Workers</p>
-            <p className="text-5xl font-extrabold mt-2">{totalIncome}</p>
-            <p className="text-sm">Total Income (₹)</p>
-          </div>
-        )}
-      </div>
+        </header>
 
-      {/* Tabs */}
-      <div className="mb-4">
-        <button
-          onClick={() => setActiveTab("jobs")}
-          className={`px-4 py-2 mr-2 font-bold ${
-            activeTab === "jobs" ? "bg-blue-700" : "bg-blue-500"
-          }`}
-        >
-          Jobs & Revenue
-        </button>
-        <button
-          onClick={() => setActiveTab("workers")}
-          className={`px-4 py-2 font-bold ${
-            activeTab === "workers" ? "bg-blue-700" : "bg-blue-500"
-          }`}
-        >
-          Workers & Income
-        </button>
-      </div>
+        {/* Tabs */}
+        <div className="mb-8 flex justify-center space-x-4">
+          {["all", "Sukinda", "Danagadi"].map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`px-6 py-2 rounded-full font-semibold transition-all duration-300 transform hover:scale-105 focus:outline-none ring-2 ring-teal-200 focus:ring-2 focus:ring-teal-400 ${
+                activeTab === tab
+                  ? "bg-teal-600 text-white"
+                  : "bg-gray-700/50 text-gray-300 hover:bg-gray-600"
+              }`}
+              aria-label={`Switch to ${
+                tab === "all" ? "All Villages" : `${tab} Block`
+              }`}
+              aria-pressed={activeTab === tab}
+            >
+              {tab === "all" ? "All Villages" : `${tab} Block`}
+            </button>
+          ))}
+        </div>
 
-      {/* Content based on selected tab */}
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-4">
-        {districtsData.map((district, index) => (
-          <div
-            key={index}
-            className="bg-blue-800 p-4 rounded-md shadow-md hover:bg-blue-700 transition-colors"
-          >
-            <h2 className="text-lg font-semibold">{district.name}</h2>
-
-            {/* Render data based on active tab */}
-            {activeTab === "jobs" ? (
-              <div className="flex justify-between">
-                <div>
-                  <p className="mt-2 text-sm">Jobs Completed (no.)</p>
-                  <p className="text-2xl font-bold">{district.jobsCompleted}</p>
+        {/* Village Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {filteredData.map((village, index) => (
+            <div
+              key={index}
+              className="bg-gray-900/70 backdrop-blur-md border border-teal-200 p-5 rounded-xl shadow-lg hover:shadow-neon hover:-translate-y-2 transition-all duration-300 group cursor-pointer"
+              onClick={() => navigate(`/dashboard/village/${village.VillageName}`)} // Navigate on click
+            >
+              <h2 className="text-xl font-semibold text-teal-300 mb-3 truncate">
+                {village.VillageName}
+              </h2>
+              <div className="space-y-4">
+                <div className="flex justify-between">
+                  <div>
+                    <p className="text-xs text-cyan-400 uppercase tracking-wider">
+                      Households
+                    </p>
+                    <p className="text-lg font-medium text-white">
+                      {village.TotalHouseHoldsSurveyed}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-cyan-400 uppercase tracking-wider">
+                      Population
+                    </p>
+                    <p className="text-lg font-medium text-white">
+                      {village.TotalPopulationSurveyed}
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <p className="mt-2 text-sm">Total Revenue (₹)</p>
-                  <p className="text-2xl font-bold">{district.totalRevenue}</p>
+
+                <div className="flex justify-between">
+                  <div>
+                    <p className="text-xs text-cyan-400 uppercase tracking-wider">
+                      Avg <br /> Income (₹)
+                    </p>
+                    <p className="text-lg font-medium text-white">
+                      {village.AvgAnnualIncome}
+                    </p>
+                  </div>
+                  <div>
+                    <p className="text-xs text-cyan-400 uppercase tracking-wider">
+                      Avg <br /> Expenditure (₹)
+                    </p>
+                    <p className="text-lg font-medium text-white">
+                      {village.AvgAnnualVillageExpenditure}
+                    </p>
+                  </div>
                 </div>
               </div>
-            ) : (
-              <div className="flex justify-between">
-                <div>
-                  <p className="mt-2 text-sm">Total Workers (no.)</p>
-                  <p className="text-2xl font-bold">{district.totalWorkers}</p>
-                </div>
-                <div>
-                  <p className="mt-2 text-sm">Total Income (₹)</p>
-                  <p className="text-2xl font-bold">{district.totalIncome}</p>
-                </div>
-              </div>
-            )}
-          </div>
-        ))}
+              <div className="mt-4 h-1 bg-gradient-to-r from-teal-500/50 to-purple-600/50 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* Custom CSS for Animations and Effects */}
+      <style jsx>{`
+        @keyframes blob {
+          0% {
+            transform: translate(0, 0) scale(1);
+          }
+          50% {
+            transform: translate(20px, -20px) scale(1.1);
+          }
+          100% {
+            transform: translate(0, 0) scale(1);
+          }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        @keyframes pulse {
+          0%,
+          100% {
+            opacity: 1;
+          }
+          50% {
+            opacity: 0.6;
+          }
+        }
+        .animate-pulse {
+          animation: pulse 2s infinite;
+        }
+        .shadow-neon {
+          box-shadow: 0 0 10px #00ffff, 0 0 20px #00ffff, 0 0 30px #00ff00;
+        }
+        .truncate {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      `}</style>
     </div>
   );
 };

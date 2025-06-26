@@ -2,6 +2,9 @@ module.exports = {
   content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      fontFamily: {
+        michroma: ['Michroma', 'sans-serif'],
+      },
       animation: {
         marquee: 'marquee 15s linear infinite',
         "blue-glow": "blue-glow 4s linear infinite",

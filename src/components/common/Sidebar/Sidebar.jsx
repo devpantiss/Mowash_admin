@@ -1,23 +1,29 @@
 import React from "react";
 import { Link, useLocation } from "react-router-dom";
+import { IoHomeOutline } from "react-icons/io5";
 
 const Sidebar = () => {
   const location = useLocation();
 
   return (
-    <div className="w-[100px] h-screen bg-blue-900 text-white sticky top-0 flex-shrink-0">
-      <div className="p-4 pb-0 text-center text-xl font-bold">
-        <img
-          src="https://res.cloudinary.com/dgtc2fvgu/image/upload/v1726530988/mo-wash-logo_eiq199.svg"
-          className="w-32"
-          alt="mowash"
-        />
-      </div>
-      <nav className="mt-2">
+    <div className="w-[100px] h-screen bg-black text-white sticky top-0 flex-shrink-0">
+      <nav className="">
         <ul>
+          {/* Home Icon */}
           <li
-            className={`p-4 hover:bg-blue-700 border-y-2 border-white ${
-              location.pathname === "/" ? "bg-blue-400" : ""
+            className={`p-4 hover:bg-teal-700 border-y-2 border-white ${
+              location.pathname === "/" ? "bg-teal-700" : ""
+            }`}
+          >
+            <Link to="/" className="flex flex-col justify-center items-center">
+              <IoHomeOutline className="w-[50px] h-[50px] mb-2" />
+              {/* <p className="mt-3 text-[14px] text-center">Home</p> */}
+            </Link>
+          </li>
+
+          <li
+            className={`p-4 hover:bg-teal-700 border-y-2 border-white ${
+              location.pathname === "/dashboard" ? "bg-teal-700" : ""
             }`}
           >
             <Link to="/dashboard" className="flex flex-col justify-center items-center">
@@ -31,12 +37,12 @@ const Sidebar = () => {
           </li>
 
           <li
-            className={`p-4 hover:bg-blue-700 border-b-2 border-white ${
-              location.pathname === "/page1" ? "bg-blue-400" : ""
+            className={`p-4 hover:bg-teal-700 border-b-2 border-white ${
+              location.pathname === "/dashboard/block_dashboard" ? "bg-teal-700" : ""
             }`}
           >
             <Link
-              to="/dashboard/page1"
+              to="/dashboard/block_dashboard"
               className="flex flex-col justify-center items-center"
             >
               <img
@@ -48,7 +54,7 @@ const Sidebar = () => {
             </Link>
           </li>
 
-          <li
+          {/* <li
             className={`p-4 hover:bg-blue-700 border-b-2 border-white ${
               location.pathname === "/onboarding-centers" ? "bg-blue-400" : ""
             }`}
@@ -64,9 +70,9 @@ const Sidebar = () => {
               />
               <p className="mt-3 text-[14px] text-center">OnBoarding Centers</p>
             </Link>
-          </li>
+          </li> */}
 
-          <li
+          {/* <li
             className={`p-4 hover:bg-blue-700 border-b-2 border-white ${
               location.pathname === "/total-service-providers"
                 ? "bg-blue-400"
@@ -84,9 +90,9 @@ const Sidebar = () => {
               />
               <p className="mt-3 text-[14px] text-center">Mowash Engineers</p>
             </Link>
-          </li>
+          </li> */}
 
-          <li
+          {/* <li
             className={`p-4 hover:bg-blue-700 border-b-2 border-white ${
               location.pathname === "/total-services" ? "bg-blue-400" : ""
             }`}
@@ -102,9 +108,9 @@ const Sidebar = () => {
               />
               <p className="mt-3 text-[14px] text-center">Services</p>
             </Link>
-          </li>
+          </li> */}
 
-          <li
+          {/* <li
             className={`p-4 hover:bg-blue-700 border-b-2 border-white ${
               location.pathname === "/welfare-kendra" ? "bg-blue-400" : ""
             }`}
@@ -120,9 +126,9 @@ const Sidebar = () => {
               />
               <p className="mt-3 text-[14px] text-center">Welfare Kendra</p>
             </Link>
-          </li>
+          </li> */}
 
-          <li
+          {/* <li
             className={`p-4 hover:bg-blue-700 border-b-2 border-white ${
               location.pathname === "/about" ? "bg-blue-400" : ""
             }`}
@@ -138,7 +144,7 @@ const Sidebar = () => {
               />
               <p className="mt-3 text-[14px] text-center">Info</p>
             </Link>
-          </li>
+          </li> */}
         </ul>
       </nav>
     </div>
